@@ -1,0 +1,3 @@
+type: http
+scheme: bearer
+description: IdPから発行されたアクセストークンを利用します

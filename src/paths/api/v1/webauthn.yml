@@ -3,6 +3,8 @@ post:
   tags: 
     - webauthn
   summary: 登録リクエスト
+  security:
+    - Bearer: []
   requestBody:
     content:
       application/json:
