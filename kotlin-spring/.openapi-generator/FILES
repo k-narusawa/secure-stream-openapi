@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+README.md
+build.gradle.kts
+pom.xml
+settings.gradle
+src/main/kotlin/org/openapitools/SpringDocConfiguration.kt
+src/main/kotlin/org/openapitools/api/ApiSecureStream.kt
+src/main/kotlin/org/openapitools/api/ApiUtil.kt
+src/main/kotlin/org/openapitools/api/Exceptions.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistration.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistration1.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistration1Response.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistrationAuthenticatorSelection.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistrationExtensions.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistrationPubKeyCredParamsInner.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistrationRp.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistrationUser.kt
