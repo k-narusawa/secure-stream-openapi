@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "docs": "browser-sync start --server --files *",
-    "gen": "redocly build-docs src/openapi.yml"
+    "gen": "redocly build-docs src/openapi.yml -o openapi.html"
   },
   "keywords": [],
   "author": "",
