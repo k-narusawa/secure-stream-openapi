@@ -2,7 +2,7 @@ post:
   operationId: webauthn
   tags: 
     - webauthn
-  summary: webauthn登録リクエスト
+  summary: 登録リクエスト
   requestBody:
     content:
       application/json:
