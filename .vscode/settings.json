@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced"
+  },
+  "tabWidth": 2,
+}

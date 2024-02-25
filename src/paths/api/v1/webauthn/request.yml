@@ -1,0 +1,12 @@
+get:
+  operationId: webauthn
+  tags: 
+    - webauthn
+  summary: webauthn登録要求リクエスト
+  responses:
+    '200':
+      description: createCredentials実行に必要なレスポンスを返却します
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../components/schemas/WebauthnRegistration.yml'

@@ -1,0 +1,16 @@
+openapi: 3.0.0
+
+info:
+  version: 1.0.0
+  title: SecureStream API
+  description: SecureStream APIの仕様書です
+
+servers:
+  - url: http://localhost:8081
+    description: ローカル環境
+
+paths:
+  /api/v1/webauthn/request:
+    $ref: './paths/api/v1/webauthn/request.yml'
+  /api/v1/webauthn:
+    $ref: './paths/api/v1/webauthn.yml'

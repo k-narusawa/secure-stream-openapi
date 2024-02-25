@@ -1,0 +1,29 @@
+type: object
+required:
+  - flowId
+  - id
+  - rawId
+  - type
+  - response
+properties:
+  flowId:
+    type: string
+    example: "456dbe73-8a57-48c9-8c0c-1d6385587fea"
+  id:
+    type: string
+    example: "tvMjj05IPVctiN"
+  rawId:
+    type: string
+    example: "tvMjj05IPVctiN"
+  type:
+    type: string
+    example: "public-key"
+  response:
+    type: object
+    properties:
+      clientDataJSON:
+        type: string
+        example: "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiNGdiQUJ6VklSWWlua21TMmxPZkpZUSIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCIsImNyb3NzT3JpZ2luIjpmYWxzZX0"
+      attestationObject:
+        type: string
+        example: "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YViUSZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NdAAAAALraVWanqkAfvZZFYZpVEg0AELbzI49OSD1XLYjfmxnqiBylAQIDJiABIVgg4V7Ijs6Eqkd8kQYbDhxBne5Nbw9K5AinMUKL6TQCPfoiWCD1v-X3uCDewz3rA7SKU-vY3O3CVc1n5IEocIduZ77ETw"
