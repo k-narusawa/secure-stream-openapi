@@ -1,5 +1,5 @@
 post:
-  operationId: webauthn
+  operationId: registerWebauthn
   tags: 
     - webauthn
   summary: 登録リクエスト
@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../../components/schemas/requestBodies/WebauthnRegistration.yml'
+          $ref: '../../../components/schemas/requestBodies/RegisterWebauthnRequest.yml'
   responses:
     '200':
       description: credentials登録結果を返却します

@@ -1,5 +1,5 @@
 get:
-  operationId: webauthn
+  operationId: requestWebauthnRegistration
   tags: 
     - webauthn
   summary: 登録要求リクエスト
@@ -11,4 +11,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../../../components/schemas/WebauthnRegistration.yml'
+            $ref: '../../../../components/schemas/RequestWebauthnRegistration.yml'
