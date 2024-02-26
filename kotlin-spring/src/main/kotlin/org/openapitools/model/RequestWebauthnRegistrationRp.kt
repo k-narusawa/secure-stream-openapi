@@ -17,18 +17,14 @@ import io.swagger.v3.oas.annotations.media.Schema
  * 
  * @param id 
  * @param name 
- * @param displayName 
  */
-data class WebauthnRegistrationUser(
+data class RequestWebauthnRegistrationRp(
 
-    @Schema(example = "1234567890", description = "")
+    @Schema(example = "example.com", description = "")
     @get:JsonProperty("id") val id: kotlin.String? = null,
 
-    @Schema(example = "John Doe", description = "")
-    @get:JsonProperty("name") val name: kotlin.String? = null,
-
-    @Schema(example = "John Doe", description = "")
-    @get:JsonProperty("displayName") val displayName: kotlin.String? = null
+    @Schema(example = "Example", description = "")
+    @get:JsonProperty("name") val name: kotlin.String? = null
 ) {
 
 }

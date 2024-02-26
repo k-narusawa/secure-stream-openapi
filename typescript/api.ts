@@ -26,230 +26,230 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface WebauthnRegistration
+ * @interface RegisterWebauthnRequest
  */
-export interface WebauthnRegistration {
+export interface RegisterWebauthnRequest {
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistration
-     */
-    'flowId': string;
-    /**
-     * 
-     * @type {WebauthnRegistrationRp}
-     * @memberof WebauthnRegistration
-     */
-    'rp': WebauthnRegistrationRp;
-    /**
-     * 
-     * @type {WebauthnRegistrationUser}
-     * @memberof WebauthnRegistration
-     */
-    'user': WebauthnRegistrationUser;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebauthnRegistration
-     */
-    'challenge': string;
-    /**
-     * 
-     * @type {Array<WebauthnRegistrationPubKeyCredParamsInner>}
-     * @memberof WebauthnRegistration
-     */
-    'pubKeyCredParams': Array<WebauthnRegistrationPubKeyCredParamsInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof WebauthnRegistration
-     */
-    'timeout': number;
-    /**
-     * 
-     * @type {Array<WebauthnRegistrationPubKeyCredParamsInner>}
-     * @memberof WebauthnRegistration
-     */
-    'excludeCredentials': Array<WebauthnRegistrationPubKeyCredParamsInner>;
-    /**
-     * 
-     * @type {WebauthnRegistrationAuthenticatorSelection}
-     * @memberof WebauthnRegistration
-     */
-    'authenticatorSelection': WebauthnRegistrationAuthenticatorSelection;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebauthnRegistration
-     */
-    'attestation': string;
-    /**
-     * 
-     * @type {WebauthnRegistrationExtensions}
-     * @memberof WebauthnRegistration
-     */
-    'extensions'?: WebauthnRegistrationExtensions;
-}
-/**
- * 
- * @export
- * @interface WebauthnRegistration1
- */
-export interface WebauthnRegistration1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof WebauthnRegistration1
+     * @memberof RegisterWebauthnRequest
      */
     'flowId': string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistration1
+     * @memberof RegisterWebauthnRequest
      */
     'id': string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistration1
+     * @memberof RegisterWebauthnRequest
      */
     'rawId': string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistration1
+     * @memberof RegisterWebauthnRequest
      */
     'type': string;
     /**
      * 
-     * @type {WebauthnRegistration1Response}
-     * @memberof WebauthnRegistration1
+     * @type {RegisterWebauthnRequestResponse}
+     * @memberof RegisterWebauthnRequest
      */
-    'response': WebauthnRegistration1Response;
+    'response': RegisterWebauthnRequestResponse;
 }
 /**
  * 
  * @export
- * @interface WebauthnRegistration1Response
+ * @interface RegisterWebauthnRequestResponse
  */
-export interface WebauthnRegistration1Response {
+export interface RegisterWebauthnRequestResponse {
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistration1Response
+     * @memberof RegisterWebauthnRequestResponse
      */
     'clientDataJSON'?: string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistration1Response
+     * @memberof RegisterWebauthnRequestResponse
      */
     'attestationObject'?: string;
 }
 /**
  * 
  * @export
- * @interface WebauthnRegistrationAuthenticatorSelection
+ * @interface RequestWebauthnRegistration
  */
-export interface WebauthnRegistrationAuthenticatorSelection {
+export interface RequestWebauthnRegistration {
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationAuthenticatorSelection
+     * @memberof RequestWebauthnRegistration
+     */
+    'flowId': string;
+    /**
+     * 
+     * @type {RequestWebauthnRegistrationRp}
+     * @memberof RequestWebauthnRegistration
+     */
+    'rp': RequestWebauthnRegistrationRp;
+    /**
+     * 
+     * @type {RequestWebauthnRegistrationUser}
+     * @memberof RequestWebauthnRegistration
+     */
+    'user': RequestWebauthnRegistrationUser;
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestWebauthnRegistration
+     */
+    'challenge': string;
+    /**
+     * 
+     * @type {Array<RequestWebauthnRegistrationPubKeyCredParamsInner>}
+     * @memberof RequestWebauthnRegistration
+     */
+    'pubKeyCredParams': Array<RequestWebauthnRegistrationPubKeyCredParamsInner>;
+    /**
+     * 
+     * @type {number}
+     * @memberof RequestWebauthnRegistration
+     */
+    'timeout': number;
+    /**
+     * 
+     * @type {Array<RequestWebauthnRegistrationPubKeyCredParamsInner>}
+     * @memberof RequestWebauthnRegistration
+     */
+    'excludeCredentials': Array<RequestWebauthnRegistrationPubKeyCredParamsInner>;
+    /**
+     * 
+     * @type {RequestWebauthnRegistrationAuthenticatorSelection}
+     * @memberof RequestWebauthnRegistration
+     */
+    'authenticatorSelection': RequestWebauthnRegistrationAuthenticatorSelection;
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestWebauthnRegistration
+     */
+    'attestation': string;
+    /**
+     * 
+     * @type {RequestWebauthnRegistrationExtensions}
+     * @memberof RequestWebauthnRegistration
+     */
+    'extensions'?: RequestWebauthnRegistrationExtensions;
+}
+/**
+ * 
+ * @export
+ * @interface RequestWebauthnRegistrationAuthenticatorSelection
+ */
+export interface RequestWebauthnRegistrationAuthenticatorSelection {
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestWebauthnRegistrationAuthenticatorSelection
      */
     'authenticatorAttachment'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof WebauthnRegistrationAuthenticatorSelection
+     * @memberof RequestWebauthnRegistrationAuthenticatorSelection
      */
     'requireResidentKey'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationAuthenticatorSelection
+     * @memberof RequestWebauthnRegistrationAuthenticatorSelection
      */
     'userVerification'?: string;
 }
 /**
  * 
  * @export
- * @interface WebauthnRegistrationExtensions
+ * @interface RequestWebauthnRegistrationExtensions
  */
-export interface WebauthnRegistrationExtensions {
+export interface RequestWebauthnRegistrationExtensions {
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationExtensions
+     * @memberof RequestWebauthnRegistrationExtensions
      */
     'appid'?: string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationExtensions
+     * @memberof RequestWebauthnRegistrationExtensions
      */
     'authnSel'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof WebauthnRegistrationExtensions
+     * @memberof RequestWebauthnRegistrationExtensions
      */
     'exts'?: boolean;
 }
 /**
  * 
  * @export
- * @interface WebauthnRegistrationPubKeyCredParamsInner
+ * @interface RequestWebauthnRegistrationPubKeyCredParamsInner
  */
-export interface WebauthnRegistrationPubKeyCredParamsInner {
+export interface RequestWebauthnRegistrationPubKeyCredParamsInner {
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationPubKeyCredParamsInner
+     * @memberof RequestWebauthnRegistrationPubKeyCredParamsInner
      */
     'type'?: string;
 }
 /**
  * 
  * @export
- * @interface WebauthnRegistrationRp
+ * @interface RequestWebauthnRegistrationRp
  */
-export interface WebauthnRegistrationRp {
+export interface RequestWebauthnRegistrationRp {
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationRp
+     * @memberof RequestWebauthnRegistrationRp
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationRp
+     * @memberof RequestWebauthnRegistrationRp
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface WebauthnRegistrationUser
+ * @interface RequestWebauthnRegistrationUser
  */
-export interface WebauthnRegistrationUser {
+export interface RequestWebauthnRegistrationUser {
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationUser
+     * @memberof RequestWebauthnRegistrationUser
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationUser
+     * @memberof RequestWebauthnRegistrationUser
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof WebauthnRegistrationUser
+     * @memberof RequestWebauthnRegistrationUser
      */
     'displayName'?: string;
 }
@@ -262,11 +262,49 @@ export const WebauthnApiAxiosParamCreator = function (configuration?: Configurat
     return {
         /**
          * 
+         * @summary 登録リクエスト
+         * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerWebauthn: async (registerWebauthnRequest?: RegisterWebauthnRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/v1/webauthn`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(registerWebauthnRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary 登録要求リクエスト
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        webauthn: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        requestWebauthnRegistration: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1/webauthn/request`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -294,44 +332,6 @@ export const WebauthnApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * 
-         * @summary 登録リクエスト
-         * @param {WebauthnRegistration1} [webauthnRegistration1] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        webauthn_1: async (webauthnRegistration1?: WebauthnRegistration1, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/v1/webauthn`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(webauthnRegistration1, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -344,27 +344,27 @@ export const WebauthnApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary 登録要求リクエスト
+         * @summary 登録リクエスト
+         * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async webauthn(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WebauthnRegistration>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.webauthn(options);
+        async registerWebauthn(registerWebauthnRequest?: RegisterWebauthnRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.registerWebauthn(registerWebauthnRequest, options);
             const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['WebauthnApi.webauthn']?.[index]?.url;
+            const operationBasePath = operationServerMap['WebauthnApi.registerWebauthn']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
-         * @summary 登録リクエスト
-         * @param {WebauthnRegistration1} [webauthnRegistration1] 
+         * @summary 登録要求リクエスト
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async webauthn_1(webauthnRegistration1?: WebauthnRegistration1, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.webauthn_1(webauthnRegistration1, options);
+        async requestWebauthnRegistration(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RequestWebauthnRegistration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestWebauthnRegistration(options);
             const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['WebauthnApi.webauthn_1']?.[index]?.url;
+            const operationBasePath = operationServerMap['WebauthnApi.requestWebauthnRegistration']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -379,22 +379,22 @@ export const WebauthnApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * 
+         * @summary 登録リクエスト
+         * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerWebauthn(registerWebauthnRequest?: RegisterWebauthnRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.registerWebauthn(registerWebauthnRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary 登録要求リクエスト
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        webauthn(options?: any): AxiosPromise<WebauthnRegistration> {
-            return localVarFp.webauthn(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary 登録リクエスト
-         * @param {WebauthnRegistration1} [webauthnRegistration1] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        webauthn_1(webauthnRegistration1?: WebauthnRegistration1, options?: any): AxiosPromise<void> {
-            return localVarFp.webauthn_1(webauthnRegistration1, options).then((request) => request(axios, basePath));
+        requestWebauthnRegistration(options?: any): AxiosPromise<RequestWebauthnRegistration> {
+            return localVarFp.requestWebauthnRegistration(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -408,25 +408,25 @@ export const WebauthnApiFactory = function (configuration?: Configuration, baseP
 export class WebauthnApi extends BaseAPI {
     /**
      * 
+     * @summary 登録リクエスト
+     * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebauthnApi
+     */
+    public registerWebauthn(registerWebauthnRequest?: RegisterWebauthnRequest, options?: RawAxiosRequestConfig) {
+        return WebauthnApiFp(this.configuration).registerWebauthn(registerWebauthnRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
      * @summary 登録要求リクエスト
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebauthnApi
      */
-    public webauthn(options?: RawAxiosRequestConfig) {
-        return WebauthnApiFp(this.configuration).webauthn(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary 登録リクエスト
-     * @param {WebauthnRegistration1} [webauthnRegistration1] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WebauthnApi
-     */
-    public webauthn_1(webauthnRegistration1?: WebauthnRegistration1, options?: RawAxiosRequestConfig) {
-        return WebauthnApiFp(this.configuration).webauthn_1(webauthnRegistration1, options).then((request) => request(this.axios, this.basePath));
+    public requestWebauthnRegistration(options?: RawAxiosRequestConfig) {
+        return WebauthnApiFp(this.configuration).requestWebauthnRegistration(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

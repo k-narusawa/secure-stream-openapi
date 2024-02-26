@@ -2,11 +2,11 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.openapitools.model.WebauthnRegistrationAuthenticatorSelection
-import org.openapitools.model.WebauthnRegistrationExtensions
-import org.openapitools.model.WebauthnRegistrationPubKeyCredParamsInner
-import org.openapitools.model.WebauthnRegistrationRp
-import org.openapitools.model.WebauthnRegistrationUser
+import org.openapitools.model.RequestWebauthnRegistrationAuthenticatorSelection
+import org.openapitools.model.RequestWebauthnRegistrationExtensions
+import org.openapitools.model.RequestWebauthnRegistrationPubKeyCredParamsInner
+import org.openapitools.model.RequestWebauthnRegistrationRp
+import org.openapitools.model.RequestWebauthnRegistrationUser
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Email
@@ -31,43 +31,43 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @param attestation 
  * @param extensions 
  */
-data class WebauthnRegistration(
+data class RequestWebauthnRegistration(
 
     @Schema(example = "456dbe73-8a57-48c9-8c0c-1d6385587fea", required = true, description = "")
     @get:JsonProperty("flowId", required = true) val flowId: kotlin.String,
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("rp", required = true) val rp: WebauthnRegistrationRp,
+    @get:JsonProperty("rp", required = true) val rp: RequestWebauthnRegistrationRp,
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("user", required = true) val user: WebauthnRegistrationUser,
+    @get:JsonProperty("user", required = true) val user: RequestWebauthnRegistrationUser,
 
     @Schema(example = "R_g3M58WQWSas4mjL2SVKg", required = true, description = "")
     @get:JsonProperty("challenge", required = true) val challenge: kotlin.String,
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("pubKeyCredParams", required = true) val pubKeyCredParams: kotlin.collections.List<WebauthnRegistrationPubKeyCredParamsInner>,
+    @get:JsonProperty("pubKeyCredParams", required = true) val pubKeyCredParams: kotlin.collections.List<RequestWebauthnRegistrationPubKeyCredParamsInner>,
 
     @Schema(example = "60000", required = true, description = "")
     @get:JsonProperty("timeout", required = true) val timeout: kotlin.Int,
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("excludeCredentials", required = true) val excludeCredentials: kotlin.collections.List<WebauthnRegistrationPubKeyCredParamsInner>,
+    @get:JsonProperty("excludeCredentials", required = true) val excludeCredentials: kotlin.collections.List<RequestWebauthnRegistrationPubKeyCredParamsInner>,
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("authenticatorSelection", required = true) val authenticatorSelection: WebauthnRegistrationAuthenticatorSelection,
+    @get:JsonProperty("authenticatorSelection", required = true) val authenticatorSelection: RequestWebauthnRegistrationAuthenticatorSelection,
 
     @Schema(example = "none", required = true, description = "")
     @get:JsonProperty("attestation", required = true) val attestation: kotlin.String,
 
     @field:Valid
     @Schema(example = "null", description = "")
-    @get:JsonProperty("extensions") val extensions: WebauthnRegistrationExtensions? = null
+    @get:JsonProperty("extensions") val extensions: RequestWebauthnRegistrationExtensions? = null
 ) {
 
 }

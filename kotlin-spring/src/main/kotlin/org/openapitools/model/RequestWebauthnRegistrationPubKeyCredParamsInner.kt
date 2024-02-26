@@ -15,20 +15,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param appid 
- * @param authnSel 
- * @param exts 
+ * @param type 
  */
-data class WebauthnRegistrationExtensions(
+data class RequestWebauthnRegistrationPubKeyCredParamsInner(
 
-    @Schema(example = "https://example.com", description = "")
-    @get:JsonProperty("appid") val appid: kotlin.String? = null,
-
-    @Schema(example = "required", description = "")
-    @get:JsonProperty("authnSel") val authnSel: kotlin.String? = null,
-
-    @Schema(example = "true", description = "")
-    @get:JsonProperty("exts") val exts: kotlin.Boolean? = null
+    @Schema(example = "public-key", description = "")
+    @get:JsonProperty("type") val type: kotlin.String? = null
 ) {
 
 }

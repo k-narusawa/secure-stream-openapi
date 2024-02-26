@@ -5,8 +5,8 @@
 */
 package org.openapitools.api
 
-import org.openapitools.model.WebauthnRegistration
-import org.openapitools.model.WebauthnRegistration1
+import org.openapitools.model.RegisterWebauthnRequest
+import org.openapitools.model.RequestWebauthnRegistration
 import io.swagger.v3.oas.annotations.*
 import io.swagger.v3.oas.annotations.enums.*
 import io.swagger.v3.oas.annotations.media.*
@@ -39,26 +39,8 @@ import kotlin.collections.Map
 interface ApiSecureStream {
 
     @Operation(
-        summary = "登録要求リクエスト",
-        operationId = "webauthn",
-        description = """""",
-        responses = [
-            ApiResponse(responseCode = "200", description = "createCredentials実行に必要なレスポンスを返却します", content = [Content(schema = Schema(implementation = WebauthnRegistration::class))])
-        ],
-        security = [ SecurityRequirement(name = "Bearer") ]
-    )
-    @RequestMapping(
-            method = [RequestMethod.GET],
-            value = ["/api/v1/webauthn/request"],
-            produces = ["application/json"]
-    )
-    fun webauthn(): ResponseEntity<WebauthnRegistration> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
-    }
-
-    @Operation(
         summary = "登録リクエスト",
-        operationId = "webauthn",
+        operationId = "registerWebauthn",
         description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "credentials登録結果を返却します")
@@ -70,7 +52,25 @@ interface ApiSecureStream {
             value = ["/api/v1/webauthn"],
             consumes = ["application/json"]
     )
-    fun webauthn(@Parameter(description = "") @Valid @RequestBody(required = false) webauthnRegistration1: WebauthnRegistration1?): ResponseEntity<Unit> {
+    fun registerWebauthn(@Parameter(description = "") @Valid @RequestBody(required = false) registerWebauthnRequest: RegisterWebauthnRequest?): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "登録要求リクエスト",
+        operationId = "requestWebauthnRegistration",
+        description = """""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "createCredentials実行に必要なレスポンスを返却します", content = [Content(schema = Schema(implementation = RequestWebauthnRegistration::class))])
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.GET],
+            value = ["/api/v1/webauthn/request"],
+            produces = ["application/json"]
+    )
+    fun requestWebauthnRegistration(): ResponseEntity<RequestWebauthnRegistration> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

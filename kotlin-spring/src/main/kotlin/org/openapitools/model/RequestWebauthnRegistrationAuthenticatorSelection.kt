@@ -19,7 +19,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @param requireResidentKey 
  * @param userVerification 
  */
-data class WebauthnRegistrationAuthenticatorSelection(
+data class RequestWebauthnRegistrationAuthenticatorSelection(
 
     @Schema(example = "cross-platform", description = "")
     @get:JsonProperty("authenticatorAttachment") val authenticatorAttachment: kotlin.String? = null,

@@ -2,7 +2,7 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.openapitools.model.WebauthnRegistration1Response
+import org.openapitools.model.RegisterWebauthnRequestResponse
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Email
@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @param type 
  * @param response 
  */
-data class WebauthnRegistration1(
+data class RegisterWebauthnRequest(
 
     @Schema(example = "456dbe73-8a57-48c9-8c0c-1d6385587fea", required = true, description = "")
     @get:JsonProperty("flowId", required = true) val flowId: kotlin.String,
@@ -38,7 +38,7 @@ data class WebauthnRegistration1(
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("response", required = true) val response: WebauthnRegistration1Response
+    @get:JsonProperty("response", required = true) val response: RegisterWebauthnRequestResponse
 ) {
 
 }

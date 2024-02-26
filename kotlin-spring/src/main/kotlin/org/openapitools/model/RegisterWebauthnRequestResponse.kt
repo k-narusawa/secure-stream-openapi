@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @param clientDataJSON 
  * @param attestationObject 
  */
-data class WebauthnRegistration1Response(
+data class RegisterWebauthnRequestResponse(
 
     @Schema(example = "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiNGdiQUJ6VklSWWlua21TMmxPZkpZUSIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCIsImNyb3NzT3JpZ2luIjpmYWxzZX0", description = "")
     @get:JsonProperty("clientDataJSON") val clientDataJSON: kotlin.String? = null,
