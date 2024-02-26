@@ -1,8 +1,6 @@
 .openapi-generator-ignore
 README.md
-build.gradle.kts
 pom.xml
-settings.gradle
 src/main/kotlin/org/openapitools/SpringDocConfiguration.kt
 src/main/kotlin/org/openapitools/api/ApiSecureStream.kt
 src/main/kotlin/org/openapitools/api/ApiUtil.kt

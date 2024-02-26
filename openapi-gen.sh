@@ -10,6 +10,7 @@ docker run --rm \
     --additional-properties apiSuffix=SecureStream \
     --additional-properties useSpringBoot3=true \
     --additional-properties interfaceOnly=true \
+    --additional-properties gradleBuildFile=false \
     -o /local/kotlin-spring
 
 docker run --rm \
