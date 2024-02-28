@@ -39,7 +39,24 @@ import kotlin.collections.Map
 interface ApiSecureStream {
 
     @Operation(
-        summary = "登録リクエスト",
+        summary = "登録済みのWebauthnのcredentialを全て削除します。",
+        operationId = "deleteWebauthn",
+        description = """""",
+        responses = [
+            ApiResponse(responseCode = "204", description = "削除成功")
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.DELETE],
+            value = ["/api/v1/webauthn"]
+    )
+    fun deleteWebauthn(): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "Webauthnの登録を行います。",
         operationId = "registerWebauthn",
         description = """""",
         responses = [
@@ -57,7 +74,7 @@ interface ApiSecureStream {
     }
 
     @Operation(
-        summary = "登録要求リクエスト",
+        summary = "Webauthn登録のために認証器に送信する情報を取得します。",
         operationId = "requestWebauthnRegistration",
         description = """""",
         responses = [

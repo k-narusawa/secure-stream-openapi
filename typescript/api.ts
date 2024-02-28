@@ -287,7 +287,41 @@ export const WebauthnApiAxiosParamCreator = function (configuration?: Configurat
     return {
         /**
          * 
-         * @summary 登録リクエスト
+         * @summary 登録済みのWebauthnのcredentialを全て削除します。
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWebauthn: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/v1/webauthn`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Webauthnの登録を行います。
          * @param {RegisterWebauthnRequest} registerWebauthnRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -327,7 +361,7 @@ export const WebauthnApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
-         * @summary 登録要求リクエスト
+         * @summary Webauthn登録のために認証器に送信する情報を取得します。
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -371,7 +405,19 @@ export const WebauthnApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary 登録リクエスト
+         * @summary 登録済みのWebauthnのcredentialを全て削除します。
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteWebauthn(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWebauthn(options);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WebauthnApi.deleteWebauthn']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Webauthnの登録を行います。
          * @param {RegisterWebauthnRequest} registerWebauthnRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -384,7 +430,7 @@ export const WebauthnApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary 登録要求リクエスト
+         * @summary Webauthn登録のために認証器に送信する情報を取得します。
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -406,7 +452,16 @@ export const WebauthnApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * 
-         * @summary 登録リクエスト
+         * @summary 登録済みのWebauthnのcredentialを全て削除します。
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWebauthn(options?: any): AxiosPromise<void> {
+            return localVarFp.deleteWebauthn(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Webauthnの登録を行います。
          * @param {RegisterWebauthnRequest} registerWebauthnRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -416,7 +471,7 @@ export const WebauthnApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
-         * @summary 登録要求リクエスト
+         * @summary Webauthn登録のために認証器に送信する情報を取得します。
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -435,7 +490,18 @@ export const WebauthnApiFactory = function (configuration?: Configuration, baseP
 export class WebauthnApi extends BaseAPI {
     /**
      * 
-     * @summary 登録リクエスト
+     * @summary 登録済みのWebauthnのcredentialを全て削除します。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebauthnApi
+     */
+    public deleteWebauthn(options?: RawAxiosRequestConfig) {
+        return WebauthnApiFp(this.configuration).deleteWebauthn(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Webauthnの登録を行います。
      * @param {RegisterWebauthnRequest} registerWebauthnRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -447,7 +513,7 @@ export class WebauthnApi extends BaseAPI {
 
     /**
      * 
-     * @summary 登録要求リクエスト
+     * @summary Webauthn登録のために認証器に送信する情報を取得します。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebauthnApi
