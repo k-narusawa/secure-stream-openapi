@@ -15,13 +15,9 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param id 
  * @param type 
  */
 data class RequestWebauthnRegistrationPubKeyCredParamsInner(
-
-    @Schema(example = "public-key", description = "")
-    @get:JsonProperty("id") val id: kotlin.String? = null,
 
     @Schema(example = "public-key", description = "")
     @get:JsonProperty("type") val type: kotlin.String? = null
