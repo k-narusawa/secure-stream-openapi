@@ -42,9 +42,6 @@ properties:
     items:
       type: object
       properties:
-        id:
-          type: string
-          example: "public-key"
         type:
           type: string
           example: "public-key"
