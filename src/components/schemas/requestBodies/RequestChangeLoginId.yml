@@ -1,0 +1,8 @@
+type: object
+required:
+  - login_id
+properties:
+  login_id:
+    type: string
+    example: "test@example.com"
+    description: 新しいログインID

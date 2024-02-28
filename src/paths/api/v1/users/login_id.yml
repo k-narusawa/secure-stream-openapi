@@ -1,8 +1,8 @@
-post:
+patch:
   operationId: requestChangeLoginId
   tags: 
     - login_id
-  summary: 変更要求
+  summary: 変更
   description: ログインIDの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
   security:
     - Bearer: []
@@ -14,4 +14,4 @@ post:
           $ref: '../../../../components/schemas/requestBodies/ChangePassword.yml'
   responses:
     '204':
-      description: パスワード変更成功
+      description: ログインID変更成功

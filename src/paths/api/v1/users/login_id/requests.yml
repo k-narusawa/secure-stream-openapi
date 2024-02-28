@@ -1,0 +1,17 @@
+post:
+  operationId: requestChangeLoginId
+  tags: 
+    - login_id
+  summary: 変更要求
+  description: ログインIDの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
+  security:
+    - Bearer: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../../../components/schemas/requestBodies/RequestChangeLoginId.yml'
+  responses:
+    '204':
+      description: ログインID変更要求成功
