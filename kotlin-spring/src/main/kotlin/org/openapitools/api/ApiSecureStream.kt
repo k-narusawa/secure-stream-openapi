@@ -5,7 +5,10 @@
 */
 package org.openapitools.api
 
+import org.openapitools.model.ChangePassword
 import org.openapitools.model.RegisterWebauthnRequest
+import org.openapitools.model.RequestChangeLoginId
+import org.openapitools.model.RequestChangePassword
 import org.openapitools.model.RequestWebauthnRegistration
 import io.swagger.v3.oas.annotations.*
 import io.swagger.v3.oas.annotations.enums.*
@@ -39,6 +42,42 @@ import kotlin.collections.Map
 interface ApiSecureStream {
 
     @Operation(
+        summary = "変更要求",
+        operationId = "changePassword",
+        description = """パスワードの変更リクエストを行います。送信されるメール内の認証コードを変更時のリクエストに含めてください。""",
+        responses = [
+            ApiResponse(responseCode = "204", description = "パスワード変更要求成功")
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.POST],
+            value = ["/api/v1/users/password/requests"],
+            consumes = ["application/json"]
+    )
+    fun changePassword(@Parameter(description = "", required = true) @Valid @RequestBody requestChangePassword: RequestChangePassword): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "変更",
+        operationId = "changePassword",
+        description = """パスワードの変更を行います。パスワード変更要求時にメールに添付された認証コードを送信してください。""",
+        responses = [
+            ApiResponse(responseCode = "204", description = "パスワード変更成功")
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.PATCH],
+            value = ["/api/v1/users/password"],
+            consumes = ["application/json"]
+    )
+    fun changePassword(@Parameter(description = "", required = true) @Valid @RequestBody changePassword: ChangePassword): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
         summary = "全件削除",
         operationId = "deleteWebauthn",
         description = """登録済みのWebauthnのcredentialを全て削除します。""",
@@ -49,7 +88,7 @@ interface ApiSecureStream {
     )
     @RequestMapping(
             method = [RequestMethod.DELETE],
-            value = ["/api/v1/webauthn"]
+            value = ["/api/v1/users/webauthn"]
     )
     fun deleteWebauthn(): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
@@ -66,7 +105,7 @@ interface ApiSecureStream {
     )
     @RequestMapping(
             method = [RequestMethod.POST],
-            value = ["/api/v1/webauthn"],
+            value = ["/api/v1/users/webauthn"],
             consumes = ["application/json"]
     )
     fun registerWebauthn(@Parameter(description = "", required = true) @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<Unit> {
@@ -74,7 +113,43 @@ interface ApiSecureStream {
     }
 
     @Operation(
-        summary = "登録要求リクエスト",
+        summary = "変更要求",
+        operationId = "requestChangeLoginId",
+        description = """ログインIDの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。""",
+        responses = [
+            ApiResponse(responseCode = "204", description = "ログインID変更要求成功")
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.POST],
+            value = ["/api/v1/users/login_id/requests"],
+            consumes = ["application/json"]
+    )
+    fun requestChangeLoginId(@Parameter(description = "", required = true) @Valid @RequestBody requestChangeLoginId: RequestChangeLoginId): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "変更",
+        operationId = "requestChangeLoginId",
+        description = """ログインIDの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。""",
+        responses = [
+            ApiResponse(responseCode = "204", description = "ログインID変更成功")
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.PATCH],
+            value = ["/api/v1/users/login_id"],
+            consumes = ["application/json"]
+    )
+    fun requestChangeLoginId(@Parameter(description = "", required = true) @Valid @RequestBody changePassword: ChangePassword): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "登録要求",
         operationId = "requestWebauthnRegistration",
         description = """Webauthn登録のために認証器に送信する情報を取得します。""",
         responses = [
@@ -84,7 +159,7 @@ interface ApiSecureStream {
     )
     @RequestMapping(
             method = [RequestMethod.GET],
-            value = ["/api/v1/webauthn/request"],
+            value = ["/api/v1/users/webauthn/requests"],
             produces = ["application/json"]
     )
     fun requestWebauthnRegistration(): ResponseEntity<RequestWebauthnRegistration> {
