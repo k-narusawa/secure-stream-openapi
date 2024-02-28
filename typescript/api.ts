@@ -123,10 +123,10 @@ export interface RequestWebauthnRegistration {
     'timeout': number;
     /**
      * 
-     * @type {Array<RequestWebauthnRegistrationPubKeyCredParamsInner>}
+     * @type {Array<RequestWebauthnRegistrationExcludeCredentialsInner>}
      * @memberof RequestWebauthnRegistration
      */
-    'excludeCredentials': Array<RequestWebauthnRegistrationPubKeyCredParamsInner>;
+    'excludeCredentials': Array<RequestWebauthnRegistrationExcludeCredentialsInner>;
     /**
      * 
      * @type {RequestWebauthnRegistrationAuthenticatorSelection}
@@ -174,6 +174,25 @@ export interface RequestWebauthnRegistrationAuthenticatorSelection {
 /**
  * 
  * @export
+ * @interface RequestWebauthnRegistrationExcludeCredentialsInner
+ */
+export interface RequestWebauthnRegistrationExcludeCredentialsInner {
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestWebauthnRegistrationExcludeCredentialsInner
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestWebauthnRegistrationExcludeCredentialsInner
+     */
+    'type'?: string;
+}
+/**
+ * 
+ * @export
  * @interface RequestWebauthnRegistrationExtensions
  */
 export interface RequestWebauthnRegistrationExtensions {
@@ -202,6 +221,12 @@ export interface RequestWebauthnRegistrationExtensions {
  * @interface RequestWebauthnRegistrationPubKeyCredParamsInner
  */
 export interface RequestWebauthnRegistrationPubKeyCredParamsInner {
+    /**
+     * 
+     * @type {string}
+     * @memberof RequestWebauthnRegistrationPubKeyCredParamsInner
+     */
+    'alg'?: string;
     /**
      * 
      * @type {string}
