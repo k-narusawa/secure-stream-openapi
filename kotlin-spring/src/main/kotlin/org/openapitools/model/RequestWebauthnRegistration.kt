@@ -3,6 +3,7 @@ package org.openapitools.model
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.openapitools.model.RequestWebauthnRegistrationAuthenticatorSelection
+import org.openapitools.model.RequestWebauthnRegistrationExcludeCredentialsInner
 import org.openapitools.model.RequestWebauthnRegistrationExtensions
 import org.openapitools.model.RequestWebauthnRegistrationPubKeyCredParamsInner
 import org.openapitools.model.RequestWebauthnRegistrationRp
@@ -56,7 +57,7 @@ data class RequestWebauthnRegistration(
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("excludeCredentials", required = true) val excludeCredentials: kotlin.collections.List<RequestWebauthnRegistrationPubKeyCredParamsInner>,
+    @get:JsonProperty("excludeCredentials", required = true) val excludeCredentials: kotlin.collections.List<RequestWebauthnRegistrationExcludeCredentialsInner>,
 
     @field:Valid
     @Schema(example = "null", required = true, description = "")
