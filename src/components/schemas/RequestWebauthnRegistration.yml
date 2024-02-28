@@ -43,7 +43,8 @@ properties:
       type: object
       properties:
         alg:
-          type: string
+          type: integer
+          format: int64
           example: -7
         type:
           type: string

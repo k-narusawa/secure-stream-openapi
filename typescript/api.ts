@@ -223,10 +223,10 @@ export interface RequestWebauthnRegistrationExtensions {
 export interface RequestWebauthnRegistrationPubKeyCredParamsInner {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof RequestWebauthnRegistrationPubKeyCredParamsInner
      */
-    'alg'?: string;
+    'alg'?: number;
     /**
      * 
      * @type {string}
