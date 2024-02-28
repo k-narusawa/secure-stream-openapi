@@ -1,0 +1,17 @@
+put:
+  operationId: changePassword
+  tags: 
+    - password
+  summary: 変更要求
+  description: パスワードの変更リクエストを行います。送信されるメール内の認証コードを変更時のリクエストに含めてください。
+  security:
+    - Bearer: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../../../components/schemas/requestBodies/RequestChangePassword.yml'
+  responses:
+    '204':
+      description: パスワード変更成功
