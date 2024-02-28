@@ -14,3 +14,14 @@ post:
   responses:
     '200':
       description: credentials登録結果を返却します
+
+delete:
+  operationId: deleteWebauthn
+  tags: 
+    - webauthn
+  summary: 削除
+  security:
+    - Bearer: []
+  responses:
+    '204':
+      description: 削除成功
