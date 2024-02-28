@@ -263,11 +263,13 @@ export const WebauthnApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary 登録リクエスト
-         * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
+         * @param {RegisterWebauthnRequest} registerWebauthnRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        registerWebauthn: async (registerWebauthnRequest?: RegisterWebauthnRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        registerWebauthn: async (registerWebauthnRequest: RegisterWebauthnRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'registerWebauthnRequest' is not null or undefined
+            assertParamExists('registerWebauthn', 'registerWebauthnRequest', registerWebauthnRequest)
             const localVarPath = `/api/v1/webauthn`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -345,11 +347,11 @@ export const WebauthnApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary 登録リクエスト
-         * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
+         * @param {RegisterWebauthnRequest} registerWebauthnRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async registerWebauthn(registerWebauthnRequest?: RegisterWebauthnRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async registerWebauthn(registerWebauthnRequest: RegisterWebauthnRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.registerWebauthn(registerWebauthnRequest, options);
             const index = configuration?.serverIndex ?? 0;
             const operationBasePath = operationServerMap['WebauthnApi.registerWebauthn']?.[index]?.url;
@@ -380,11 +382,11 @@ export const WebauthnApiFactory = function (configuration?: Configuration, baseP
         /**
          * 
          * @summary 登録リクエスト
-         * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
+         * @param {RegisterWebauthnRequest} registerWebauthnRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        registerWebauthn(registerWebauthnRequest?: RegisterWebauthnRequest, options?: any): AxiosPromise<void> {
+        registerWebauthn(registerWebauthnRequest: RegisterWebauthnRequest, options?: any): AxiosPromise<void> {
             return localVarFp.registerWebauthn(registerWebauthnRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -409,12 +411,12 @@ export class WebauthnApi extends BaseAPI {
     /**
      * 
      * @summary 登録リクエスト
-     * @param {RegisterWebauthnRequest} [registerWebauthnRequest] 
+     * @param {RegisterWebauthnRequest} registerWebauthnRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WebauthnApi
      */
-    public registerWebauthn(registerWebauthnRequest?: RegisterWebauthnRequest, options?: RawAxiosRequestConfig) {
+    public registerWebauthn(registerWebauthnRequest: RegisterWebauthnRequest, options?: RawAxiosRequestConfig) {
         return WebauthnApiFp(this.configuration).registerWebauthn(registerWebauthnRequest, options).then((request) => request(this.axios, this.basePath));
     }
 

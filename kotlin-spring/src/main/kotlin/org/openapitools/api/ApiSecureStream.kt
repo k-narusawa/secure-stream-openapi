@@ -52,7 +52,7 @@ interface ApiSecureStream {
             value = ["/api/v1/webauthn"],
             consumes = ["application/json"]
     )
-    fun registerWebauthn(@Parameter(description = "") @Valid @RequestBody(required = false) registerWebauthnRequest: RegisterWebauthnRequest?): ResponseEntity<Unit> {
+    fun registerWebauthn(@Parameter(description = "", required = true) @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
