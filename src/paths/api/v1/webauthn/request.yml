@@ -2,7 +2,7 @@ get:
   operationId: requestWebauthnRegistration
   tags: 
     - webauthn
-  summary: 登録要求リクエスト
+  summary: Webauthn登録のために認証器に送信する情報を取得します。
   security:
     - Bearer: []
   responses:

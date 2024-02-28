@@ -2,7 +2,7 @@ post:
   operationId: registerWebauthn
   tags: 
     - webauthn
-  summary: 登録リクエスト
+  summary: Webauthnの登録を行います。
   security:
     - Bearer: []
   requestBody:
@@ -19,7 +19,7 @@ delete:
   operationId: deleteWebauthn
   tags: 
     - webauthn
-  summary: 削除
+  summary: 登録済みのWebauthnのcredentialを全て削除します。
   security:
     - Bearer: []
   responses:
