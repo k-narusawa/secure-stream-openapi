@@ -12,4 +12,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../../../components/schemas/RequestWebauthnRegistration.yml'
+            $ref: '../../../../../components/schemas/RequestWebauthnRegistration.yml'

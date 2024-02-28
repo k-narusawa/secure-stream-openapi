@@ -11,7 +11,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../../components/schemas/requestBodies/RegisterWebauthnRequest.yml'
+          $ref: '../../../../components/schemas/requestBodies/RegisterWebauthnRequest.yml'
   responses:
     '200':
       description: credentials登録結果を返却します
