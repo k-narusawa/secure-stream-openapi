@@ -37,6 +37,20 @@ export interface ChangePassword {
     'code': string;
 }
 /**
+ * プロバイダ名
+ * @export
+ * @enum {string}
+ */
+
+export const Provider = {
+    Google: 'google',
+    Github: 'github'
+} as const;
+
+export type Provider = typeof Provider[keyof typeof Provider];
+
+
+/**
  * 
  * @export
  * @interface RegisterWebauthnRequest
@@ -317,6 +331,40 @@ export interface RequestWebauthnRegistrationUser {
      */
     'displayName'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface SocialLoginUrls
+ */
+export interface SocialLoginUrls {
+    /**
+     * 
+     * @type {Array<SocialLoginUrlsUrlsInner>}
+     * @memberof SocialLoginUrls
+     */
+    'urls': Array<SocialLoginUrlsUrlsInner>;
+}
+/**
+ * 
+ * @export
+ * @interface SocialLoginUrlsUrlsInner
+ */
+export interface SocialLoginUrlsUrlsInner {
+    /**
+     * 
+     * @type {Provider}
+     * @memberof SocialLoginUrlsUrlsInner
+     */
+    'provider': Provider;
+    /**
+     * 
+     * @type {string}
+     * @memberof SocialLoginUrlsUrlsInner
+     */
+    'url': string;
+}
+
+
 
 /**
  * LoginIdApi - axios parameter creator
@@ -691,6 +739,180 @@ export class PasswordApi extends BaseAPI {
      */
     public changePassword_1(changePassword: ChangePassword, options?: RawAxiosRequestConfig) {
         return PasswordApiFp(this.configuration).changePassword_1(changePassword, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * SocialLoginApi - axios parameter creator
+ * @export
+ */
+export const SocialLoginApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 各種ソーシャルログインの認可リクエストURLを取得します
+         * @summary 認可リクエスト一覧取得
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSocialLoginUrl: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/v1/users/social_login/urls`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
+         * @summary 認可コードリクエスト
+         * @param {string} provider プロバイダ
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestAuthorizationCode: async (provider: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'provider' is not null or undefined
+            assertParamExists('requestAuthorizationCode', 'provider', provider)
+            const localVarPath = `/api/v1/users/social_login/code/{provider}`
+                .replace(`{${"provider"}}`, encodeURIComponent(String(provider)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SocialLoginApi - functional programming interface
+ * @export
+ */
+export const SocialLoginApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SocialLoginApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 各種ソーシャルログインの認可リクエストURLを取得します
+         * @summary 認可リクエスト一覧取得
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSocialLoginUrl(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SocialLoginUrls>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSocialLoginUrl(options);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SocialLoginApi.getSocialLoginUrl']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+        /**
+         * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
+         * @summary 認可コードリクエスト
+         * @param {string} provider プロバイダ
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestAuthorizationCode(provider: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestAuthorizationCode(provider, options);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SocialLoginApi.requestAuthorizationCode']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * SocialLoginApi - factory interface
+ * @export
+ */
+export const SocialLoginApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SocialLoginApiFp(configuration)
+    return {
+        /**
+         * 各種ソーシャルログインの認可リクエストURLを取得します
+         * @summary 認可リクエスト一覧取得
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSocialLoginUrl(options?: any): AxiosPromise<SocialLoginUrls> {
+            return localVarFp.getSocialLoginUrl(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
+         * @summary 認可コードリクエスト
+         * @param {string} provider プロバイダ
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestAuthorizationCode(provider: string, options?: any): AxiosPromise<void> {
+            return localVarFp.requestAuthorizationCode(provider, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * SocialLoginApi - object-oriented interface
+ * @export
+ * @class SocialLoginApi
+ * @extends {BaseAPI}
+ */
+export class SocialLoginApi extends BaseAPI {
+    /**
+     * 各種ソーシャルログインの認可リクエストURLを取得します
+     * @summary 認可リクエスト一覧取得
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SocialLoginApi
+     */
+    public getSocialLoginUrl(options?: RawAxiosRequestConfig) {
+        return SocialLoginApiFp(this.configuration).getSocialLoginUrl(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
+     * @summary 認可コードリクエスト
+     * @param {string} provider プロバイダ
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SocialLoginApi
+     */
+    public requestAuthorizationCode(provider: string, options?: RawAxiosRequestConfig) {
+        return SocialLoginApiFp(this.configuration).requestAuthorizationCode(provider, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

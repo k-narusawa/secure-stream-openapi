@@ -10,6 +10,7 @@ import org.openapitools.model.RegisterWebauthnRequest
 import org.openapitools.model.RequestChangeLoginId
 import org.openapitools.model.RequestChangePassword
 import org.openapitools.model.RequestWebauthnRegistration
+import org.openapitools.model.SocialLoginUrls
 import io.swagger.v3.oas.annotations.*
 import io.swagger.v3.oas.annotations.enums.*
 import io.swagger.v3.oas.annotations.media.*
@@ -95,6 +96,24 @@ interface ApiSecureStream {
     }
 
     @Operation(
+        summary = "認可リクエスト一覧取得",
+        operationId = "getSocialLoginUrl",
+        description = """各種ソーシャルログインの認可リクエストURLを取得します""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "認可リクエストURL一覧", content = [Content(schema = Schema(implementation = SocialLoginUrls::class))])
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.GET],
+            value = ["/api/v1/users/social_login/urls"],
+            produces = ["application/json"]
+    )
+    fun getSocialLoginUrl(): ResponseEntity<SocialLoginUrls> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
         summary = "登録",
         operationId = "registerWebauthn",
         description = """Webauthnの登録を行います。""",
@@ -109,6 +128,22 @@ interface ApiSecureStream {
             consumes = ["application/json"]
     )
     fun registerWebauthn(@Parameter(description = "", required = true) @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "認可コードリクエスト",
+        operationId = "requestAuthorizationCode",
+        description = """各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "認証成功")
+        ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.GET],
+            value = ["/api/v1/users/social_login/code/{provider}"]
+    )
+    fun requestAuthorizationCode(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
