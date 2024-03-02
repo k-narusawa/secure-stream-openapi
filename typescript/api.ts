@@ -788,12 +788,15 @@ export const SocialLoginApiAxiosParamCreator = function (configuration?: Configu
          * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
          * @summary 認可コードリクエスト
          * @param {string} provider プロバイダ
+         * @param {string} code 認可コード
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestAuthorizationCode: async (provider: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        requestAuthorizationCode: async (provider: string, code: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'provider' is not null or undefined
             assertParamExists('requestAuthorizationCode', 'provider', provider)
+            // verify required parameter 'code' is not null or undefined
+            assertParamExists('requestAuthorizationCode', 'code', code)
             const localVarPath = `/api/v1/users/social_login/code/{provider}`
                 .replace(`{${"provider"}}`, encodeURIComponent(String(provider)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -806,6 +809,10 @@ export const SocialLoginApiAxiosParamCreator = function (configuration?: Configu
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (code !== undefined) {
+                localVarQueryParameter['code'] = code;
+            }
 
 
     
@@ -844,11 +851,12 @@ export const SocialLoginApiFp = function(configuration?: Configuration) {
          * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
          * @summary 認可コードリクエスト
          * @param {string} provider プロバイダ
+         * @param {string} code 認可コード
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async requestAuthorizationCode(provider: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.requestAuthorizationCode(provider, options);
+        async requestAuthorizationCode(provider: string, code: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestAuthorizationCode(provider, code, options);
             const index = configuration?.serverIndex ?? 0;
             const operationBasePath = operationServerMap['SocialLoginApi.requestAuthorizationCode']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
@@ -876,11 +884,12 @@ export const SocialLoginApiFactory = function (configuration?: Configuration, ba
          * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
          * @summary 認可コードリクエスト
          * @param {string} provider プロバイダ
+         * @param {string} code 認可コード
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestAuthorizationCode(provider: string, options?: any): AxiosPromise<void> {
-            return localVarFp.requestAuthorizationCode(provider, options).then((request) => request(axios, basePath));
+        requestAuthorizationCode(provider: string, code: string, options?: any): AxiosPromise<void> {
+            return localVarFp.requestAuthorizationCode(provider, code, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -907,12 +916,13 @@ export class SocialLoginApi extends BaseAPI {
      * 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
      * @summary 認可コードリクエスト
      * @param {string} provider プロバイダ
+     * @param {string} code 認可コード
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SocialLoginApi
      */
-    public requestAuthorizationCode(provider: string, options?: RawAxiosRequestConfig) {
-        return SocialLoginApiFp(this.configuration).requestAuthorizationCode(provider, options).then((request) => request(this.axios, this.basePath));
+    public requestAuthorizationCode(provider: string, code: string, options?: RawAxiosRequestConfig) {
+        return SocialLoginApiFp(this.configuration).requestAuthorizationCode(provider, code, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
