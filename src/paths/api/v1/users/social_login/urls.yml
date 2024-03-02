@@ -1,0 +1,15 @@
+get:
+  operationId: getSocialLoginUrl
+  tags: 
+    - social_login
+  summary: 認可リクエスト一覧取得
+  description: 各種ソーシャルログインの認可リクエストURLを取得します
+  security:
+    - Bearer: []
+  responses:
+    '200':
+      description: 認可リクエストURL一覧
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../components/schemas/SocialLoginUrls.yml'

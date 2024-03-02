@@ -1,0 +1,16 @@
+get:
+  operationId: requestAuthorizationCode
+  tags: 
+    - social_login
+  summary: 認可コードリクエスト
+  description: 各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）
+  parameters:
+    - in: path
+      name: provider
+      required: true
+      description: プロバイダ
+      schema:
+        type: string
+  responses:
+    '200':
+      description: 認証成功

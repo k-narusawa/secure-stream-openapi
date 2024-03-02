@@ -22,6 +22,10 @@ paths:
     $ref: './paths/api/v1/users/webauthn/requests.yml'
   /api/v1/users/webauthn:
     $ref: './paths/api/v1/users/webauthn.yml'
+  /api/v1/users/social_login/urls:
+    $ref: './paths/api/v1/users/social_login/urls.yml'
+  /api/v1/users/social_login/code/{provider}:
+    $ref: './paths/api/v1/users/social_login/code/provider.yml'
 
 components:  
   securitySchemes:

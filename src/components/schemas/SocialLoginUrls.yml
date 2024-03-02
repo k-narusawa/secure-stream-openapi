@@ -1,0 +1,17 @@
+type: object
+required:
+  - urls
+properties:
+  urls:
+    type: array
+    items:
+      type: object
+      required:
+        - provider
+        - url
+      properties:
+        provider:
+          $ref: './Provider.yml'
+        url:
+          type: string
+          example: "http://localhost:8081/api/v1/users/social_login/google"
