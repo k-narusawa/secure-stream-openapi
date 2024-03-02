@@ -18,5 +18,5 @@ get:
       schema:
         type: string
   responses:
-    '200':
-      description: 認証成功
+    '302':
+      description: 連携完了画面へリダイレクトを行う

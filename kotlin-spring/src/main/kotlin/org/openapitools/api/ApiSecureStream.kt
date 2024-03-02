@@ -136,7 +136,7 @@ interface ApiSecureStream {
         operationId = "requestAuthorizationCode",
         description = """各種ソーシャルログインの認可コードからアクセストークンを取得します（バックエンド用）""",
         responses = [
-            ApiResponse(responseCode = "200", description = "認証成功")
+            ApiResponse(responseCode = "302", description = "連携完了画面へリダイレクトを行う")
         ]
     )
     @RequestMapping(
