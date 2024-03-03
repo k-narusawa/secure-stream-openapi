@@ -22,6 +22,11 @@ get:
       description: state
       schema:
         type: string
+    - in: query
+      name: login_challenge
+      description: IdP側の認証に必要なチャレンジコード
+      schema:
+        type: string
   responses:
     '302':
       description: 認証アプリケーション側にcodeとstateを含めた状態でリダイレクト

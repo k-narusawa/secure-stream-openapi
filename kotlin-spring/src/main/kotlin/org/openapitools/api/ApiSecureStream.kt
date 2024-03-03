@@ -157,7 +157,7 @@ interface ApiSecureStream {
             method = [RequestMethod.GET],
             value = ["/api/v1/users/social_login/login/code/{provider}"]
     )
-    fun requestAuthorizationCodeForLogin(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String,@NotNull @Parameter(description = "認可コード", required = true) @Valid @RequestParam(value = "code", required = true) code: kotlin.String,@Parameter(description = "state") @Valid @RequestParam(value = "state", required = false) state: kotlin.String?): ResponseEntity<Unit> {
+    fun requestAuthorizationCodeForLogin(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String,@NotNull @Parameter(description = "認可コード", required = true) @Valid @RequestParam(value = "code", required = true) code: kotlin.String,@Parameter(description = "state") @Valid @RequestParam(value = "state", required = false) state: kotlin.String?,@Parameter(description = "IdP側の認証に必要なチャレンジコード") @Valid @RequestParam(value = "login_challenge", required = false) loginChallenge: kotlin.String?): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 

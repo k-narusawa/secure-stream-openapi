@@ -757,10 +757,11 @@ export const SocialLoginApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} provider プロバイダ
          * @param {string} code 認可コード
          * @param {string} [state] state
+         * @param {string} [loginChallenge] IdP側の認証に必要なチャレンジコード
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestAuthorizationCodeForLogin: async (provider: string, code: string, state?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        requestAuthorizationCodeForLogin: async (provider: string, code: string, state?: string, loginChallenge?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'provider' is not null or undefined
             assertParamExists('requestAuthorizationCodeForLogin', 'provider', provider)
             // verify required parameter 'code' is not null or undefined
@@ -784,6 +785,10 @@ export const SocialLoginApiAxiosParamCreator = function (configuration?: Configu
 
             if (state !== undefined) {
                 localVarQueryParameter['state'] = state;
+            }
+
+            if (loginChallenge !== undefined) {
+                localVarQueryParameter['login_challenge'] = loginChallenge;
             }
 
 
@@ -853,11 +858,12 @@ export const SocialLoginApiFp = function(configuration?: Configuration) {
          * @param {string} provider プロバイダ
          * @param {string} code 認可コード
          * @param {string} [state] state
+         * @param {string} [loginChallenge] IdP側の認証に必要なチャレンジコード
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.requestAuthorizationCodeForLogin(provider, code, state, options);
+        async requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, loginChallenge?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestAuthorizationCodeForLogin(provider, code, state, loginChallenge, options);
             const index = configuration?.serverIndex ?? 0;
             const operationBasePath = operationServerMap['SocialLoginApi.requestAuthorizationCodeForLogin']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
@@ -909,11 +915,12 @@ export const SocialLoginApiFactory = function (configuration?: Configuration, ba
          * @param {string} provider プロバイダ
          * @param {string} code 認可コード
          * @param {string} [state] state
+         * @param {string} [loginChallenge] IdP側の認証に必要なチャレンジコード
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, options?: any): AxiosPromise<void> {
-            return localVarFp.requestAuthorizationCodeForLogin(provider, code, state, options).then((request) => request(axios, basePath));
+        requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, loginChallenge?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.requestAuthorizationCodeForLogin(provider, code, state, loginChallenge, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -968,12 +975,13 @@ export class SocialLoginApi extends BaseAPI {
      * @param {string} provider プロバイダ
      * @param {string} code 認可コード
      * @param {string} [state] state
+     * @param {string} [loginChallenge] IdP側の認証に必要なチャレンジコード
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SocialLoginApi
      */
-    public requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, options?: RawAxiosRequestConfig) {
-        return SocialLoginApiFp(this.configuration).requestAuthorizationCodeForLogin(provider, code, state, options).then((request) => request(this.axios, this.basePath));
+    public requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, loginChallenge?: string, options?: RawAxiosRequestConfig) {
+        return SocialLoginApiFp(this.configuration).requestAuthorizationCodeForLogin(provider, code, state, loginChallenge, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
