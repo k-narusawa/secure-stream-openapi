@@ -760,11 +760,11 @@ export const SocialLoginApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestAuthorizationCode_1: async (provider: string, code: string, state?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        requestAuthorizationCodeForLogin: async (provider: string, code: string, state?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'provider' is not null or undefined
-            assertParamExists('requestAuthorizationCode_1', 'provider', provider)
+            assertParamExists('requestAuthorizationCodeForLogin', 'provider', provider)
             // verify required parameter 'code' is not null or undefined
-            assertParamExists('requestAuthorizationCode_1', 'code', code)
+            assertParamExists('requestAuthorizationCodeForLogin', 'code', code)
             const localVarPath = `/api/v1/users/social_login/login/code/{provider}`
                 .replace(`{${"provider"}}`, encodeURIComponent(String(provider)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -856,10 +856,10 @@ export const SocialLoginApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async requestAuthorizationCode_1(provider: string, code: string, state?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.requestAuthorizationCode_1(provider, code, state, options);
+        async requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestAuthorizationCodeForLogin(provider, code, state, options);
             const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['SocialLoginApi.requestAuthorizationCode_1']?.[index]?.url;
+            const operationBasePath = operationServerMap['SocialLoginApi.requestAuthorizationCodeForLogin']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -912,8 +912,8 @@ export const SocialLoginApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestAuthorizationCode_1(provider: string, code: string, state?: string, options?: any): AxiosPromise<void> {
-            return localVarFp.requestAuthorizationCode_1(provider, code, state, options).then((request) => request(axios, basePath));
+        requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.requestAuthorizationCodeForLogin(provider, code, state, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -972,8 +972,8 @@ export class SocialLoginApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SocialLoginApi
      */
-    public requestAuthorizationCode_1(provider: string, code: string, state?: string, options?: RawAxiosRequestConfig) {
-        return SocialLoginApiFp(this.configuration).requestAuthorizationCode_1(provider, code, state, options).then((request) => request(this.axios, this.basePath));
+    public requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, options?: RawAxiosRequestConfig) {
+        return SocialLoginApiFp(this.configuration).requestAuthorizationCodeForLogin(provider, code, state, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

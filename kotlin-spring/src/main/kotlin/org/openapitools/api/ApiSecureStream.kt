@@ -147,7 +147,7 @@ interface ApiSecureStream {
 
     @Operation(
         summary = "ログインリクエスト",
-        operationId = "requestAuthorizationCode",
+        operationId = "requestAuthorizationCodeForLogin",
         description = """各種ソーシャルログインの認可コードを認証アプリケーション側にリダイレクトします""",
         responses = [
             ApiResponse(responseCode = "302", description = "認証アプリケーション側にcodeとstateを含めた状態でリダイレクト")
@@ -157,7 +157,7 @@ interface ApiSecureStream {
             method = [RequestMethod.GET],
             value = ["/api/v1/users/social_login/login/code/{provider}"]
     )
-    fun requestAuthorizationCode(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String,@NotNull @Parameter(description = "認可コード", required = true) @Valid @RequestParam(value = "code", required = true) code: kotlin.String,@Parameter(description = "state") @Valid @RequestParam(value = "state", required = false) state: kotlin.String?): ResponseEntity<Unit> {
+    fun requestAuthorizationCodeForLogin(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String,@NotNull @Parameter(description = "認可コード", required = true) @Valid @RequestParam(value = "code", required = true) code: kotlin.String,@Parameter(description = "state") @Valid @RequestParam(value = "state", required = false) state: kotlin.String?): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 

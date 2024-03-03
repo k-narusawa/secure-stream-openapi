@@ -1,5 +1,5 @@
 get:
-  operationId: requestAuthorizationCode
+  operationId: requestAuthorizationCodeForLogin
   tags: 
     - social_login
   summary: ログインリクエスト
