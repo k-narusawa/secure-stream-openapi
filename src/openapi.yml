@@ -14,8 +14,6 @@ paths:
     $ref: './paths/api/v1/users/login_id/requests.yml'
   /api/v1/users/login_id:
     $ref: './paths/api/v1/users/login_id.yml'
-  /api/v1/users/password/requests:
-    $ref: './paths/api/v1/users/password/requests.yml'
   /api/v1/users/password:
     $ref: './paths/api/v1/users/password.yml'
   /api/v1/users/webauthn/requests:
