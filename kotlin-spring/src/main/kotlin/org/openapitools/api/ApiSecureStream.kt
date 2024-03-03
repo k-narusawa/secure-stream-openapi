@@ -8,7 +8,6 @@ package org.openapitools.api
 import org.openapitools.model.ChangePassword
 import org.openapitools.model.RegisterWebauthnRequest
 import org.openapitools.model.RequestChangeLoginId
-import org.openapitools.model.RequestChangePassword
 import org.openapitools.model.RequestWebauthnRegistration
 import org.openapitools.model.SocialLoginUrls
 import io.swagger.v3.oas.annotations.*
@@ -43,27 +42,9 @@ import kotlin.collections.Map
 interface ApiSecureStream {
 
     @Operation(
-        summary = "変更要求",
-        operationId = "changePassword",
-        description = """パスワードの変更リクエストを行います。送信されるメール内の認証コードを変更時のリクエストに含めてください。""",
-        responses = [
-            ApiResponse(responseCode = "204", description = "パスワード変更要求成功")
-        ],
-        security = [ SecurityRequirement(name = "Bearer") ]
-    )
-    @RequestMapping(
-            method = [RequestMethod.POST],
-            value = ["/api/v1/users/password/requests"],
-            consumes = ["application/json"]
-    )
-    fun changePassword(@Parameter(description = "", required = true) @Valid @RequestBody requestChangePassword: RequestChangePassword): ResponseEntity<Unit> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
-    }
-
-    @Operation(
         summary = "変更",
         operationId = "changePassword",
-        description = """パスワードの変更を行います。パスワード変更要求時にメールに添付された認証コードを送信してください。""",
+        description = """パスワードの変更を行います。""",
         responses = [
             ApiResponse(responseCode = "204", description = "パスワード変更成功")
         ],
@@ -159,6 +140,22 @@ interface ApiSecureStream {
     @RequestMapping(
             method = [RequestMethod.GET],
             value = ["/api/v1/users/social_login/code/{provider}"]
+    )
+    fun requestAuthorizationCode(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String,@NotNull @Parameter(description = "認可コード", required = true) @Valid @RequestParam(value = "code", required = true) code: kotlin.String,@Parameter(description = "state") @Valid @RequestParam(value = "state", required = false) state: kotlin.String?): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "ログインリクエスト",
+        operationId = "requestAuthorizationCode",
+        description = """各種ソーシャルログインの認可コードを認証アプリケーション側にリダイレクトします""",
+        responses = [
+            ApiResponse(responseCode = "302", description = "認証アプリケーション側にcodeとstateを含めた状態でリダイレクト")
+        ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.GET],
+            value = ["/api/v1/users/social_login/login/code/{provider}"]
     )
     fun requestAuthorizationCode(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String,@NotNull @Parameter(description = "認可コード", required = true) @Valid @RequestParam(value = "code", required = true) code: kotlin.String,@Parameter(description = "state") @Valid @RequestParam(value = "state", required = false) state: kotlin.String?): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)

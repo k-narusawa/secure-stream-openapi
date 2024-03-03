@@ -15,12 +15,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param code 認証コード
+ * @param password 新しいパスワード
  */
 data class ChangePassword(
 
-    @Schema(example = "123456", required = true, description = "認証コード")
-    @get:JsonProperty("code", required = true) val code: kotlin.String
+    @Schema(example = "new_password", required = true, description = "新しいパスワード")
+    @get:JsonProperty("password", required = true) val password: kotlin.String
 ) {
 
 }
