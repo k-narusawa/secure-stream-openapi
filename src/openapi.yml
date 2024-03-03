@@ -26,6 +26,8 @@ paths:
     $ref: './paths/api/v1/users/social_login/urls.yml'
   /api/v1/users/social_login/code/{provider}:
     $ref: './paths/api/v1/users/social_login/code/provider.yml'
+  /api/v1/users/social_login/{provider}:
+    $ref: './paths/api/v1/users/social_login.yml'
 
 components:  
   securitySchemes:

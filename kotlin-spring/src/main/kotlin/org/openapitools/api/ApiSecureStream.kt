@@ -79,6 +79,23 @@ interface ApiSecureStream {
     }
 
     @Operation(
+        summary = "連携解除",
+        operationId = "deleteSocialLogin",
+        description = """連携済みのソーシャルログインの連携を解除します。""",
+        responses = [
+            ApiResponse(responseCode = "204", description = "連携解除成功")
+        ],
+        security = [ SecurityRequirement(name = "Bearer") ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.DELETE],
+            value = ["/api/v1/users/social_login/{provider}"]
+    )
+    fun deleteSocialLogin(@Parameter(description = "プロバイダ", required = true) @PathVariable("provider") provider: kotlin.String): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
         summary = "全件削除",
         operationId = "deleteWebauthn",
         description = """登録済みのWebauthnのcredentialを全て削除します。""",

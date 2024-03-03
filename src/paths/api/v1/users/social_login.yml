@@ -1,0 +1,18 @@
+delete:
+  operationId: deleteSocialLogin
+  tags: 
+    - social_login
+  summary: 連携解除
+  description: 連携済みのソーシャルログインの連携を解除します。
+  parameters:
+    - in: path
+      name: provider
+      required: true
+      description: プロバイダ
+      schema:
+        type: string
+  security:
+    - Bearer: []
+  responses:
+    '204':
+      description: 連携解除成功

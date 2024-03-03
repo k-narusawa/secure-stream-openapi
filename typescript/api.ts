@@ -722,6 +722,44 @@ export class PasswordApi extends BaseAPI {
 export const SocialLoginApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * 連携済みのソーシャルログインの連携を解除します。
+         * @summary 連携解除
+         * @param {string} provider プロバイダ
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSocialLogin: async (provider: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'provider' is not null or undefined
+            assertParamExists('deleteSocialLogin', 'provider', provider)
+            const localVarPath = `/api/v1/users/social_login/{provider}`
+                .replace(`{${"provider"}}`, encodeURIComponent(String(provider)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 各種ソーシャルログインの認可リクエストURLを取得します
          * @summary 認可リクエスト一覧取得
          * @param {*} [options] Override http request option.
@@ -812,6 +850,19 @@ export const SocialLoginApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SocialLoginApiAxiosParamCreator(configuration)
     return {
         /**
+         * 連携済みのソーシャルログインの連携を解除します。
+         * @summary 連携解除
+         * @param {string} provider プロバイダ
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSocialLogin(provider: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSocialLogin(provider, options);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SocialLoginApi.deleteSocialLogin']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+        /**
          * 各種ソーシャルログインの認可リクエストURLを取得します
          * @summary 認可リクエスト一覧取得
          * @param {*} [options] Override http request option.
@@ -849,6 +900,16 @@ export const SocialLoginApiFactory = function (configuration?: Configuration, ba
     const localVarFp = SocialLoginApiFp(configuration)
     return {
         /**
+         * 連携済みのソーシャルログインの連携を解除します。
+         * @summary 連携解除
+         * @param {string} provider プロバイダ
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSocialLogin(provider: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteSocialLogin(provider, options).then((request) => request(axios, basePath));
+        },
+        /**
          * 各種ソーシャルログインの認可リクエストURLを取得します
          * @summary 認可リクエスト一覧取得
          * @param {*} [options] Override http request option.
@@ -879,6 +940,18 @@ export const SocialLoginApiFactory = function (configuration?: Configuration, ba
  * @extends {BaseAPI}
  */
 export class SocialLoginApi extends BaseAPI {
+    /**
+     * 連携済みのソーシャルログインの連携を解除します。
+     * @summary 連携解除
+     * @param {string} provider プロバイダ
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SocialLoginApi
+     */
+    public deleteSocialLogin(provider: string, options?: RawAxiosRequestConfig) {
+        return SocialLoginApiFp(this.configuration).deleteSocialLogin(provider, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 各種ソーシャルログインの認可リクエストURLを取得します
      * @summary 認可リクエスト一覧取得
