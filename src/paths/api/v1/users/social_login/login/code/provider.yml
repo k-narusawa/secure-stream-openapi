@@ -1,0 +1,27 @@
+get:
+  operationId: requestAuthorizationCode
+  tags: 
+    - social_login
+  summary: ログインリクエスト
+  description: 各種ソーシャルログインの認可コードを認証アプリケーション側にリダイレクトします
+  parameters:
+    - in: path
+      name: provider
+      required: true
+      description: プロバイダ
+      schema:
+        type: string
+    - in: query
+      name: code
+      required: true
+      description: 認可コード
+      schema:
+        type: string
+    - in: query
+      name: state
+      description: state
+      schema:
+        type: string
+  responses:
+    '302':
+      description: 認証アプリケーション側にcodeとstateを含めた状態でリダイレクト
