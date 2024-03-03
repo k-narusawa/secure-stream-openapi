@@ -37,20 +37,6 @@ export interface ChangePassword {
     'code': string;
 }
 /**
- * プロバイダ名
- * @export
- * @enum {string}
- */
-
-export const Provider = {
-    Google: 'google',
-    Github: 'github'
-} as const;
-
-export type Provider = typeof Provider[keyof typeof Provider];
-
-
-/**
  * 
  * @export
  * @interface RegisterWebauthnRequest
@@ -338,33 +324,18 @@ export interface RequestWebauthnRegistrationUser {
  */
 export interface SocialLoginUrls {
     /**
-     * 
-     * @type {Array<SocialLoginUrlsUrlsInner>}
+     * Googleの認可コードリクエストURL
+     * @type {string}
      * @memberof SocialLoginUrls
      */
-    'urls': Array<SocialLoginUrlsUrlsInner>;
-}
-/**
- * 
- * @export
- * @interface SocialLoginUrlsUrlsInner
- */
-export interface SocialLoginUrlsUrlsInner {
+    'google': string;
     /**
-     * 
-     * @type {Provider}
-     * @memberof SocialLoginUrlsUrlsInner
-     */
-    'provider': Provider;
-    /**
-     * 
+     * GitHubの認可コードリクエストURL
      * @type {string}
-     * @memberof SocialLoginUrlsUrlsInner
+     * @memberof SocialLoginUrls
      */
-    'url': string;
+    'github': string;
 }
-
-
 
 /**
  * LoginIdApi - axios parameter creator

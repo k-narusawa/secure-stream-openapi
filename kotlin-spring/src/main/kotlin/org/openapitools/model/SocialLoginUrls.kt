@@ -2,7 +2,6 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.openapitools.model.SocialLoginUrlsUrlsInner
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Email
@@ -16,13 +15,16 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param urls 
+ * @param google Googleの認可コードリクエストURL
+ * @param github GitHubの認可コードリクエストURL
  */
 data class SocialLoginUrls(
 
-    @field:Valid
-    @Schema(example = "null", required = true, description = "")
-    @get:JsonProperty("urls", required = true) val urls: kotlin.collections.List<SocialLoginUrlsUrlsInner>
+    @Schema(example = "https://accounts.google.com/o/oauth2/v2/auth?client_id=1234567890-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com&redirect_uri=https://example.com/oauth2callback&response_type=code&scope=openid%20email&access_type=offline&prompt=consent", required = true, description = "Googleの認可コードリクエストURL")
+    @get:JsonProperty("google", required = true) val google: kotlin.String,
+
+    @Schema(example = "https://accounts.google.com/o/oauth2/v2/auth?client_id=1234567890-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com&redirect_uri=https://example.com/oauth2callback&response_type=code&scope=openid%20email&access_type=offline&prompt=consent", required = true, description = "GitHubの認可コードリクエストURL")
+    @get:JsonProperty("github", required = true) val github: kotlin.String
 ) {
 
 }

@@ -1,17 +1,13 @@
 type: object
 required:
-  - urls
+  - google
+  - github
 properties:
-  urls:
-    type: array
-    items:
-      type: object
-      required:
-        - provider
-        - url
-      properties:
-        provider:
-          $ref: './Provider.yml'
-        url:
-          type: string
-          example: "http://localhost:8081/api/v1/users/social_login/google"
+  google: 
+    type: string
+    description: "Googleの認可コードリクエストURL"
+    example: "https://accounts.google.com/o/oauth2/v2/auth?client_id=1234567890-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com&redirect_uri=https://example.com/oauth2callback&response_type=code&scope=openid%20email&access_type=offline&prompt=consent"
+  github:
+    type: string
+    description: "GitHubの認可コードリクエストURL"
+    example: "https://accounts.google.com/o/oauth2/v2/auth?client_id=1234567890-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com&redirect_uri=https://example.com/oauth2callback&response_type=code&scope=openid%20email&access_type=offline&prompt=consent"
