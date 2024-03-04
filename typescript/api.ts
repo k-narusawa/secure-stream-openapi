@@ -39,6 +39,19 @@ export interface ChangePassword {
 /**
  * 
  * @export
+ * @interface ChangeUsername
+ */
+export interface ChangeUsername {
+    /**
+     * 認証コード
+     * @type {string}
+     * @memberof ChangeUsername
+     */
+    'code': string;
+}
+/**
+ * 
+ * @export
  * @interface RegisterWebauthnRequest
  */
 export interface RegisterWebauthnRequest {
@@ -95,15 +108,15 @@ export interface RegisterWebauthnRequestResponse {
 /**
  * 
  * @export
- * @interface RequestChangeLoginId
+ * @interface RequestChangeUsername
  */
-export interface RequestChangeLoginId {
+export interface RequestChangeUsername {
     /**
-     * 新しいログインID
+     * 新しいUsername
      * @type {string}
-     * @memberof RequestChangeLoginId
+     * @memberof RequestChangeUsername
      */
-    'login_id': string;
+    'username': string;
 }
 /**
  * 
@@ -323,195 +336,6 @@ export interface SocialLoginUrls {
      */
     'github': string;
 }
-
-/**
- * LoginIdApi - axios parameter creator
- * @export
- */
-export const LoginIdApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * ログインIDの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
-         * @summary 変更要求
-         * @param {RequestChangeLoginId} requestChangeLoginId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestChangeLoginId: async (requestChangeLoginId: RequestChangeLoginId, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'requestChangeLoginId' is not null or undefined
-            assertParamExists('requestChangeLoginId', 'requestChangeLoginId', requestChangeLoginId)
-            const localVarPath = `/api/v1/users/login_id/requests`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(requestChangeLoginId, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * ログインIDの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
-         * @summary 変更
-         * @param {ChangePassword} changePassword 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestChangeLoginId_1: async (changePassword: ChangePassword, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'changePassword' is not null or undefined
-            assertParamExists('requestChangeLoginId_1', 'changePassword', changePassword)
-            const localVarPath = `/api/v1/users/login_id`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(changePassword, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * LoginIdApi - functional programming interface
- * @export
- */
-export const LoginIdApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = LoginIdApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * ログインIDの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
-         * @summary 変更要求
-         * @param {RequestChangeLoginId} requestChangeLoginId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async requestChangeLoginId(requestChangeLoginId: RequestChangeLoginId, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.requestChangeLoginId(requestChangeLoginId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['LoginIdApi.requestChangeLoginId']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
-        },
-        /**
-         * ログインIDの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
-         * @summary 変更
-         * @param {ChangePassword} changePassword 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async requestChangeLoginId_1(changePassword: ChangePassword, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.requestChangeLoginId_1(changePassword, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['LoginIdApi.requestChangeLoginId_1']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
-        },
-    }
-};
-
-/**
- * LoginIdApi - factory interface
- * @export
- */
-export const LoginIdApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = LoginIdApiFp(configuration)
-    return {
-        /**
-         * ログインIDの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
-         * @summary 変更要求
-         * @param {RequestChangeLoginId} requestChangeLoginId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestChangeLoginId(requestChangeLoginId: RequestChangeLoginId, options?: any): AxiosPromise<void> {
-            return localVarFp.requestChangeLoginId(requestChangeLoginId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * ログインIDの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
-         * @summary 変更
-         * @param {ChangePassword} changePassword 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        requestChangeLoginId_1(changePassword: ChangePassword, options?: any): AxiosPromise<void> {
-            return localVarFp.requestChangeLoginId_1(changePassword, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * LoginIdApi - object-oriented interface
- * @export
- * @class LoginIdApi
- * @extends {BaseAPI}
- */
-export class LoginIdApi extends BaseAPI {
-    /**
-     * ログインIDの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
-     * @summary 変更要求
-     * @param {RequestChangeLoginId} requestChangeLoginId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof LoginIdApi
-     */
-    public requestChangeLoginId(requestChangeLoginId: RequestChangeLoginId, options?: RawAxiosRequestConfig) {
-        return LoginIdApiFp(this.configuration).requestChangeLoginId(requestChangeLoginId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * ログインIDの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
-     * @summary 変更
-     * @param {ChangePassword} changePassword 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof LoginIdApi
-     */
-    public requestChangeLoginId_1(changePassword: ChangePassword, options?: RawAxiosRequestConfig) {
-        return LoginIdApiFp(this.configuration).requestChangeLoginId_1(changePassword, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
 
 /**
  * PasswordApi - axios parameter creator
@@ -982,6 +806,195 @@ export class SocialLoginApi extends BaseAPI {
      */
     public requestAuthorizationCodeForLogin(provider: string, code: string, state?: string, loginChallenge?: string, options?: RawAxiosRequestConfig) {
         return SocialLoginApiFp(this.configuration).requestAuthorizationCodeForLogin(provider, code, state, loginChallenge, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * UsernameApi - axios parameter creator
+ * @export
+ */
+export const UsernameApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Usernameの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
+         * @summary 変更要求
+         * @param {RequestChangeUsername} requestChangeUsername 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestChangeLoginId: async (requestChangeUsername: RequestChangeUsername, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'requestChangeUsername' is not null or undefined
+            assertParamExists('requestChangeLoginId', 'requestChangeUsername', requestChangeUsername)
+            const localVarPath = `/api/v1/users/username/requests`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(requestChangeUsername, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Usernameの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
+         * @summary 変更
+         * @param {ChangeUsername} changeUsername 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestChangeLoginId_1: async (changeUsername: ChangeUsername, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'changeUsername' is not null or undefined
+            assertParamExists('requestChangeLoginId_1', 'changeUsername', changeUsername)
+            const localVarPath = `/api/v1/users/username`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(changeUsername, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * UsernameApi - functional programming interface
+ * @export
+ */
+export const UsernameApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = UsernameApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Usernameの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
+         * @summary 変更要求
+         * @param {RequestChangeUsername} requestChangeUsername 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestChangeLoginId(requestChangeUsername: RequestChangeUsername, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestChangeLoginId(requestChangeUsername, options);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['UsernameApi.requestChangeLoginId']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+        /**
+         * Usernameの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
+         * @summary 変更
+         * @param {ChangeUsername} changeUsername 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestChangeLoginId_1(changeUsername: ChangeUsername, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestChangeLoginId_1(changeUsername, options);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['UsernameApi.requestChangeLoginId_1']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * UsernameApi - factory interface
+ * @export
+ */
+export const UsernameApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = UsernameApiFp(configuration)
+    return {
+        /**
+         * Usernameの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
+         * @summary 変更要求
+         * @param {RequestChangeUsername} requestChangeUsername 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestChangeLoginId(requestChangeUsername: RequestChangeUsername, options?: any): AxiosPromise<void> {
+            return localVarFp.requestChangeLoginId(requestChangeUsername, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Usernameの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
+         * @summary 変更
+         * @param {ChangeUsername} changeUsername 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestChangeLoginId_1(changeUsername: ChangeUsername, options?: any): AxiosPromise<void> {
+            return localVarFp.requestChangeLoginId_1(changeUsername, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * UsernameApi - object-oriented interface
+ * @export
+ * @class UsernameApi
+ * @extends {BaseAPI}
+ */
+export class UsernameApi extends BaseAPI {
+    /**
+     * Usernameの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
+     * @summary 変更要求
+     * @param {RequestChangeUsername} requestChangeUsername 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsernameApi
+     */
+    public requestChangeLoginId(requestChangeUsername: RequestChangeUsername, options?: RawAxiosRequestConfig) {
+        return UsernameApiFp(this.configuration).requestChangeLoginId(requestChangeUsername, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Usernameの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
+     * @summary 変更
+     * @param {ChangeUsername} changeUsername 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsernameApi
+     */
+    public requestChangeLoginId_1(changeUsername: ChangeUsername, options?: RawAxiosRequestConfig) {
+        return UsernameApiFp(this.configuration).requestChangeLoginId_1(changeUsername, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

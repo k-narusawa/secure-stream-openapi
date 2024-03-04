@@ -15,12 +15,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param loginId 新しいログインID
+ * @param code 認証コード
  */
-data class RequestChangeLoginId(
+data class ChangeUsername(
 
-    @Schema(example = "test@example.com", required = true, description = "新しいログインID")
-    @get:JsonProperty("login_id", required = true) val loginId: kotlin.String
+    @Schema(example = "123456", required = true, description = "認証コード")
+    @get:JsonProperty("code", required = true) val code: kotlin.String
 ) {
 
 }

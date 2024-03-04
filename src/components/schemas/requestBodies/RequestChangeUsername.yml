@@ -1,8 +1,8 @@
 type: object
 required:
-  - login_id
+  - username
 properties:
-  login_id:
+  username:
     type: string
     example: "test@example.com"
-    description: 新しいログインID
+    description: 新しいUsername

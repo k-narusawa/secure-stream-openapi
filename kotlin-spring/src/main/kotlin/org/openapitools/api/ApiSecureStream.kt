@@ -6,8 +6,9 @@
 package org.openapitools.api
 
 import org.openapitools.model.ChangePassword
+import org.openapitools.model.ChangeUsername
 import org.openapitools.model.RegisterWebauthnRequest
-import org.openapitools.model.RequestChangeLoginId
+import org.openapitools.model.RequestChangeUsername
 import org.openapitools.model.RequestWebauthnRegistration
 import org.openapitools.model.SocialLoginUrls
 import io.swagger.v3.oas.annotations.*
@@ -164,36 +165,36 @@ interface ApiSecureStream {
     @Operation(
         summary = "変更要求",
         operationId = "requestChangeLoginId",
-        description = """ログインIDの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。""",
+        description = """Usernameの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。""",
         responses = [
-            ApiResponse(responseCode = "204", description = "ログインID変更要求成功")
+            ApiResponse(responseCode = "204", description = "Username変更要求成功")
         ],
         security = [ SecurityRequirement(name = "Bearer") ]
     )
     @RequestMapping(
             method = [RequestMethod.POST],
-            value = ["/api/v1/users/login_id/requests"],
+            value = ["/api/v1/users/username/requests"],
             consumes = ["application/json"]
     )
-    fun requestChangeLoginId(@Parameter(description = "", required = true) @Valid @RequestBody requestChangeLoginId: RequestChangeLoginId): ResponseEntity<Unit> {
+    fun requestChangeLoginId(@Parameter(description = "", required = true) @Valid @RequestBody requestChangeUsername: RequestChangeUsername): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
     @Operation(
         summary = "変更",
         operationId = "requestChangeLoginId",
-        description = """ログインIDの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。""",
+        description = """Usernameの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。""",
         responses = [
-            ApiResponse(responseCode = "204", description = "ログインID変更成功")
+            ApiResponse(responseCode = "204", description = "Username変更成功")
         ],
         security = [ SecurityRequirement(name = "Bearer") ]
     )
     @RequestMapping(
             method = [RequestMethod.PATCH],
-            value = ["/api/v1/users/login_id"],
+            value = ["/api/v1/users/username"],
             consumes = ["application/json"]
     )
-    fun requestChangeLoginId(@Parameter(description = "", required = true) @Valid @RequestBody changePassword: ChangePassword): ResponseEntity<Unit> {
+    fun requestChangeLoginId(@Parameter(description = "", required = true) @Valid @RequestBody changeUsername: ChangeUsername): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 

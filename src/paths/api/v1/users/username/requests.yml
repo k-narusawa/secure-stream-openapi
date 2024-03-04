@@ -1,0 +1,17 @@
+post:
+  operationId: requestChangeLoginId
+  tags: 
+    - username
+  summary: 変更要求
+  description: Usernameの変更を行うためのリクエストです。送信されたメールアドレス内の認証コードを変更時のリクエストに含めてください。
+  security:
+    - Bearer: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../../../components/schemas/requestBodies/RequestChangeUsername.yml'
+  responses:
+    '204':
+      description: Username変更要求成功

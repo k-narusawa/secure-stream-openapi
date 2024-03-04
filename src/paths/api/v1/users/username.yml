@@ -1,0 +1,17 @@
+patch:
+  operationId: requestChangeLoginId
+  tags: 
+    - username
+  summary: 変更
+  description: Usernameの変更を行うためのリクエストです。送信されたメールアドレスに変更用のURLが送信されます。
+  security:
+    - Bearer: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../../components/schemas/requestBodies/ChangeUsername.yml'
+  responses:
+    '204':
+      description: Username変更成功

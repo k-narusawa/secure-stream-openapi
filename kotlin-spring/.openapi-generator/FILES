@@ -6,9 +6,10 @@ src/main/kotlin/org/openapitools/api/ApiSecureStream.kt
 src/main/kotlin/org/openapitools/api/ApiUtil.kt
 src/main/kotlin/org/openapitools/api/Exceptions.kt
 src/main/kotlin/org/openapitools/model/ChangePassword.kt
+src/main/kotlin/org/openapitools/model/ChangeUsername.kt
 src/main/kotlin/org/openapitools/model/RegisterWebauthnRequest.kt
 src/main/kotlin/org/openapitools/model/RegisterWebauthnRequestResponse.kt
-src/main/kotlin/org/openapitools/model/RequestChangeLoginId.kt
+src/main/kotlin/org/openapitools/model/RequestChangeUsername.kt
 src/main/kotlin/org/openapitools/model/RequestWebauthnRegistration.kt
 src/main/kotlin/org/openapitools/model/RequestWebauthnRegistrationAuthenticatorSelection.kt
 src/main/kotlin/org/openapitools/model/RequestWebauthnRegistrationExcludeCredentialsInner.kt

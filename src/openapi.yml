@@ -10,10 +10,10 @@ servers:
     description: ローカル環境
 
 paths:
-  /api/v1/users/login_id/requests:
-    $ref: './paths/api/v1/users/login_id/requests.yml'
-  /api/v1/users/login_id:
-    $ref: './paths/api/v1/users/login_id.yml'
+  /api/v1/users/username/requests:
+    $ref: './paths/api/v1/users/username/requests.yml'
+  /api/v1/users/username:
+    $ref: './paths/api/v1/users/username.yml'
   /api/v1/users/password:
     $ref: './paths/api/v1/users/password.yml'
   /api/v1/users/webauthn/requests:
