@@ -7,7 +7,7 @@ docker run --rm \
     -v $PWD:/local openapitools/openapi-generator-cli:v7.2.0 generate \
     -i /local/src/openapi.yml \
     -g kotlin-spring \
-    --additional-properties apiSuffix=SecureStream \
+    --additional-properties useTags=true \
     --additional-properties useSpringBoot3=true \
     --additional-properties interfaceOnly=true \
     --additional-properties gradleBuildFile=false \
@@ -19,3 +19,5 @@ docker run --rm \
     -g typescript-axios \
     --additional-properties platform=node \
     -o /local/typescript
+
+rm -rf kotlin-spring/target

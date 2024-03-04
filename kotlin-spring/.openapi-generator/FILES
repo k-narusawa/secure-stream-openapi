@@ -2,9 +2,12 @@
 README.md
 pom.xml
 src/main/kotlin/org/openapitools/SpringDocConfiguration.kt
-src/main/kotlin/org/openapitools/api/ApiSecureStream.kt
 src/main/kotlin/org/openapitools/api/ApiUtil.kt
 src/main/kotlin/org/openapitools/api/Exceptions.kt
+src/main/kotlin/org/openapitools/api/PasswordApi.kt
+src/main/kotlin/org/openapitools/api/SocialLoginApi.kt
+src/main/kotlin/org/openapitools/api/UsernameApi.kt
+src/main/kotlin/org/openapitools/api/WebauthnApi.kt
 src/main/kotlin/org/openapitools/model/ChangePassword.kt
 src/main/kotlin/org/openapitools/model/ChangeUsername.kt
 src/main/kotlin/org/openapitools/model/RegisterWebauthnRequest.kt
