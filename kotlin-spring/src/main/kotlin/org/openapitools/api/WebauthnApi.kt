@@ -7,11 +7,6 @@ package org.openapitools.api
 
 import org.openapitools.model.RegisterWebauthnRequest
 import org.openapitools.model.RequestWebauthnRegistration
-import io.swagger.v3.oas.annotations.*
-import io.swagger.v3.oas.annotations.enums.*
-import io.swagger.v3.oas.annotations.media.*
-import io.swagger.v3.oas.annotations.responses.*
-import io.swagger.v3.oas.annotations.security.*
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -38,15 +33,7 @@ import kotlin.collections.Map
 @RequestMapping("\${api.base-path:}")
 interface WebauthnApi {
 
-    @Operation(
-        summary = "全件削除",
-        operationId = "deleteWebauthn",
-        description = """登録済みのWebauthnのcredentialを全て削除します。""",
-        responses = [
-            ApiResponse(responseCode = "204", description = "削除成功")
-        ],
-        security = [ SecurityRequirement(name = "Bearer") ]
-    )
+
     @RequestMapping(
             method = [RequestMethod.DELETE],
             value = ["/api/v1/users/webauthn"]
@@ -55,33 +42,17 @@ interface WebauthnApi {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
-    @Operation(
-        summary = "登録",
-        operationId = "registerWebauthn",
-        description = """Webauthnの登録を行います。""",
-        responses = [
-            ApiResponse(responseCode = "200", description = "credentials登録結果を返却します")
-        ],
-        security = [ SecurityRequirement(name = "Bearer") ]
-    )
+
     @RequestMapping(
             method = [RequestMethod.POST],
             value = ["/api/v1/users/webauthn"],
             consumes = ["application/json"]
     )
-    fun registerWebauthn(@Parameter(description = "", required = true) @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<Unit> {
+    fun registerWebauthn( @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
-    @Operation(
-        summary = "登録要求",
-        operationId = "requestWebauthnRegistration",
-        description = """Webauthn登録のために認証器に送信する情報を取得します。""",
-        responses = [
-            ApiResponse(responseCode = "200", description = "createCredentials実行に必要なレスポンスを返却します", content = [Content(schema = Schema(implementation = RequestWebauthnRegistration::class))])
-        ],
-        security = [ SecurityRequirement(name = "Bearer") ]
-    )
+
     @RequestMapping(
             method = [RequestMethod.GET],
             value = ["/api/v1/users/webauthn/requests"],

@@ -17,7 +17,6 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 import jakarta.validation.Valid
-import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
@@ -34,40 +33,30 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class RequestWebauthnRegistration(
 
-    @Schema(example = "456dbe73-8a57-48c9-8c0c-1d6385587fea", required = true, description = "")
     @get:JsonProperty("flowId", required = true) val flowId: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("rp", required = true) val rp: RequestWebauthnRegistrationRp,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("user", required = true) val user: RequestWebauthnRegistrationUser,
 
-    @Schema(example = "R_g3M58WQWSas4mjL2SVKg", required = true, description = "")
     @get:JsonProperty("challenge", required = true) val challenge: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("pubKeyCredParams", required = true) val pubKeyCredParams: kotlin.collections.List<RequestWebauthnRegistrationPubKeyCredParamsInner>,
 
-    @Schema(example = "60000", required = true, description = "")
     @get:JsonProperty("timeout", required = true) val timeout: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("excludeCredentials", required = true) val excludeCredentials: kotlin.collections.List<RequestWebauthnRegistrationExcludeCredentialsInner>,
 
     @field:Valid
-    @Schema(example = "null", required = true, description = "")
     @get:JsonProperty("authenticatorSelection", required = true) val authenticatorSelection: RequestWebauthnRegistrationAuthenticatorSelection,
 
-    @Schema(example = "none", required = true, description = "")
     @get:JsonProperty("attestation", required = true) val attestation: kotlin.String,
 
     @field:Valid
-    @Schema(example = "null", description = "")
     @get:JsonProperty("extensions") val extensions: RequestWebauthnRegistrationExtensions? = null
 ) {
 

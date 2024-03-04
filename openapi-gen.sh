@@ -11,6 +11,8 @@ docker run --rm \
     --additional-properties useSpringBoot3=true \
     --additional-properties interfaceOnly=true \
     --additional-properties gradleBuildFile=false \
+    --additional-properties documentationProvider=none \
+    --additional-properties interfaceOnly=true \
     -o /local/kotlin-spring
 
 docker run --rm \

@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 import jakarta.validation.Valid
-import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
@@ -20,10 +19,8 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class RequestWebauthnRegistrationExcludeCredentialsInner(
 
-    @Schema(example = "1234567890", description = "")
     @get:JsonProperty("id") val id: kotlin.String? = null,
 
-    @Schema(example = "public-key", description = "")
     @get:JsonProperty("type") val type: kotlin.String? = null
 ) {
 

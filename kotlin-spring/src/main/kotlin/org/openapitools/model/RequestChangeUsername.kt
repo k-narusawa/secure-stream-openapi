@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 import jakarta.validation.Valid
-import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
@@ -19,7 +18,6 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class RequestChangeUsername(
 
-    @Schema(example = "test@example.com", required = true, description = "新しいUsername")
     @get:JsonProperty("username", required = true) val username: kotlin.String
 ) {
 

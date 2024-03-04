@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 import jakarta.validation.Valid
-import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
@@ -21,13 +20,10 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class RequestWebauthnRegistrationExtensions(
 
-    @Schema(example = "https://example.com", description = "")
     @get:JsonProperty("appid") val appid: kotlin.String? = null,
 
-    @Schema(example = "required", description = "")
     @get:JsonProperty("authnSel") val authnSel: kotlin.String? = null,
 
-    @Schema(example = "true", description = "")
     @get:JsonProperty("exts") val exts: kotlin.Boolean? = null
 ) {
 

@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 import jakarta.validation.Valid
-import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
@@ -21,13 +20,10 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class RequestWebauthnRegistrationAuthenticatorSelection(
 
-    @Schema(example = "cross-platform", description = "")
     @get:JsonProperty("authenticatorAttachment") val authenticatorAttachment: kotlin.String? = null,
 
-    @Schema(example = "false", description = "")
     @get:JsonProperty("requireResidentKey") val requireResidentKey: kotlin.Boolean? = null,
 
-    @Schema(example = "required", description = "")
     @get:JsonProperty("userVerification") val userVerification: kotlin.String? = null
 ) {
 

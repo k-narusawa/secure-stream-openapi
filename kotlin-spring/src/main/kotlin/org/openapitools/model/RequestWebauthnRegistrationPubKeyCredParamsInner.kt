@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 import jakarta.validation.Valid
-import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
@@ -20,10 +19,8 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 data class RequestWebauthnRegistrationPubKeyCredParamsInner(
 
-    @Schema(example = "-7", description = "")
     @get:JsonProperty("alg") val alg: kotlin.Long? = null,
 
-    @Schema(example = "public-key", description = "")
     @get:JsonProperty("type") val type: kotlin.String? = null
 ) {
 

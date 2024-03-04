@@ -6,11 +6,6 @@
 package org.openapitools.api
 
 import org.openapitools.model.ChangePassword
-import io.swagger.v3.oas.annotations.*
-import io.swagger.v3.oas.annotations.enums.*
-import io.swagger.v3.oas.annotations.media.*
-import io.swagger.v3.oas.annotations.responses.*
-import io.swagger.v3.oas.annotations.security.*
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -37,21 +32,13 @@ import kotlin.collections.Map
 @RequestMapping("\${api.base-path:}")
 interface PasswordApi {
 
-    @Operation(
-        summary = "変更",
-        operationId = "changePassword",
-        description = """パスワードの変更を行います。""",
-        responses = [
-            ApiResponse(responseCode = "204", description = "パスワード変更成功")
-        ],
-        security = [ SecurityRequirement(name = "Bearer") ]
-    )
+
     @RequestMapping(
             method = [RequestMethod.PATCH],
             value = ["/api/v1/users/password"],
             consumes = ["application/json"]
     )
-    fun changePassword(@Parameter(description = "", required = true) @Valid @RequestBody changePassword: ChangePassword): ResponseEntity<Unit> {
+    fun changePassword( @Valid @RequestBody changePassword: ChangePassword): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }
