@@ -6,6 +6,9 @@
 package org.openapitools.api
 
 import org.openapitools.model.ChangePassword
+import org.openapitools.model.Model400Error
+import org.openapitools.model.Model401Error
+import org.openapitools.model.Model500Error
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -36,6 +39,7 @@ interface PasswordApi {
     @RequestMapping(
             method = [RequestMethod.PATCH],
             value = ["/api/v1/users/password"],
+            produces = ["application/json"],
             consumes = ["application/json"]
     )
     fun changePassword( @Valid @RequestBody changePassword: ChangePassword): ResponseEntity<Unit> {

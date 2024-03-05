@@ -52,6 +52,141 @@ export interface ChangeUsername {
 /**
  * 
  * @export
+ * @interface Model400Error
+ */
+export interface Model400Error {
+    /**
+     * 
+     * @type {Model400ErrorError}
+     * @memberof Model400Error
+     */
+    'error': Model400ErrorError;
+}
+/**
+ * 
+ * @export
+ * @interface Model400ErrorError
+ */
+export interface Model400ErrorError {
+    /**
+     * リクエストID
+     * @type {string}
+     * @memberof Model400ErrorError
+     */
+    'request_id': string;
+    /**
+     * エラーコード | エラーコード | 説明 | |-|-| | 400-001 | 入力値が不正 | | 400-002 | パスワードが弱い | 
+     * @type {string}
+     * @memberof Model400ErrorError
+     */
+    'code': Model400ErrorErrorCodeEnum;
+    /**
+     * エラーメッセージ
+     * @type {string}
+     * @memberof Model400ErrorError
+     */
+    'message': string;
+}
+
+export const Model400ErrorErrorCodeEnum = {
+    _400001: '400-001'
+} as const;
+
+export type Model400ErrorErrorCodeEnum = typeof Model400ErrorErrorCodeEnum[keyof typeof Model400ErrorErrorCodeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Model401Error
+ */
+export interface Model401Error {
+    /**
+     * 
+     * @type {Model401ErrorError}
+     * @memberof Model401Error
+     */
+    'error': Model401ErrorError;
+}
+/**
+ * 
+ * @export
+ * @interface Model401ErrorError
+ */
+export interface Model401ErrorError {
+    /**
+     * リクエストID
+     * @type {string}
+     * @memberof Model401ErrorError
+     */
+    'request_id': string;
+    /**
+     * エラーコード | エラーコード | 説明 | |-|-| | 401-001 | アクセストークン無効 | 
+     * @type {string}
+     * @memberof Model401ErrorError
+     */
+    'code': Model401ErrorErrorCodeEnum;
+    /**
+     * エラーメッセージ
+     * @type {string}
+     * @memberof Model401ErrorError
+     */
+    'message': string;
+}
+
+export const Model401ErrorErrorCodeEnum = {
+    _401001: '401-001'
+} as const;
+
+export type Model401ErrorErrorCodeEnum = typeof Model401ErrorErrorCodeEnum[keyof typeof Model401ErrorErrorCodeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Model500Error
+ */
+export interface Model500Error {
+    /**
+     * 
+     * @type {Model500ErrorError}
+     * @memberof Model500Error
+     */
+    'error': Model500ErrorError;
+}
+/**
+ * 
+ * @export
+ * @interface Model500ErrorError
+ */
+export interface Model500ErrorError {
+    /**
+     * リクエストID
+     * @type {string}
+     * @memberof Model500ErrorError
+     */
+    'request_id': string;
+    /**
+     * エラーコード | エラーコード | 説明 | |-|-| | 500-001 | 予期せぬエラー | 
+     * @type {string}
+     * @memberof Model500ErrorError
+     */
+    'code': Model500ErrorErrorCodeEnum;
+    /**
+     * エラーメッセージ
+     * @type {string}
+     * @memberof Model500ErrorError
+     */
+    'message': string;
+}
+
+export const Model500ErrorErrorCodeEnum = {
+    _500001: '500-001'
+} as const;
+
+export type Model500ErrorErrorCodeEnum = typeof Model500ErrorErrorCodeEnum[keyof typeof Model500ErrorErrorCodeEnum];
+
+/**
+ * 
+ * @export
  * @interface RegisterWebauthnRequest
  */
 export interface RegisterWebauthnRequest {

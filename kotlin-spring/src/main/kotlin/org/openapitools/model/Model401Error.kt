@@ -2,6 +2,7 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
+import org.openapitools.model.Model401ErrorError
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Email
@@ -14,11 +15,12 @@ import jakarta.validation.Valid
 
 /**
  * 
- * @param username 新しいUsername
+ * @param error 
  */
-data class RequestChangeUsername(
+data class Model401Error(
 
-    @get:JsonProperty("username", required = true) val username: kotlin.String
+    @field:Valid
+    @get:JsonProperty("error", required = true) val error: Model401ErrorError
 ) {
 
 }

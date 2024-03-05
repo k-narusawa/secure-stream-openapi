@@ -2,6 +2,7 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
+import org.openapitools.model.Model400ErrorError
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Email
@@ -14,17 +15,12 @@ import jakarta.validation.Valid
 
 /**
  * 
- * @param appid 
- * @param authnSel 
- * @param exts 
+ * @param error 
  */
-data class RequestWebauthnRegistrationExtensions(
+data class Model400Error(
 
-    @get:JsonProperty("appid") val appid: kotlin.String? = null,
-
-    @get:JsonProperty("authnSel") val authnSel: kotlin.String? = null,
-
-    @get:JsonProperty("exts") val exts: kotlin.Boolean? = null
+    @field:Valid
+    @get:JsonProperty("error", required = true) val error: Model400ErrorError
 ) {
 
 }

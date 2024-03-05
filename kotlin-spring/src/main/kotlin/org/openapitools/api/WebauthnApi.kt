@@ -5,6 +5,9 @@
 */
 package org.openapitools.api
 
+import org.openapitools.model.Model400Error
+import org.openapitools.model.Model401Error
+import org.openapitools.model.Model500Error
 import org.openapitools.model.RegisterWebauthnRequest
 import org.openapitools.model.RequestWebauthnRegistration
 import org.springframework.http.HttpStatus
@@ -36,7 +39,8 @@ interface WebauthnApi {
 
     @RequestMapping(
             method = [RequestMethod.DELETE],
-            value = ["/api/v1/users/webauthn"]
+            value = ["/api/v1/users/webauthn"],
+            produces = ["application/json"]
     )
     fun deleteWebauthn(): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
@@ -46,6 +50,7 @@ interface WebauthnApi {
     @RequestMapping(
             method = [RequestMethod.POST],
             value = ["/api/v1/users/webauthn"],
+            produces = ["application/json"],
             consumes = ["application/json"]
     )
     fun registerWebauthn( @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<Unit> {

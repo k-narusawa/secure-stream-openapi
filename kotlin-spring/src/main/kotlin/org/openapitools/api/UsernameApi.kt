@@ -6,6 +6,9 @@
 package org.openapitools.api
 
 import org.openapitools.model.ChangeUsername
+import org.openapitools.model.Model400Error
+import org.openapitools.model.Model401Error
+import org.openapitools.model.Model500Error
 import org.openapitools.model.RequestChangeUsername
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -37,6 +40,7 @@ interface UsernameApi {
     @RequestMapping(
             method = [RequestMethod.POST],
             value = ["/api/v1/users/username/requests"],
+            produces = ["application/json"],
             consumes = ["application/json"]
     )
     fun requestChangeLoginId( @Valid @RequestBody requestChangeUsername: RequestChangeUsername): ResponseEntity<Unit> {
@@ -47,6 +51,7 @@ interface UsernameApi {
     @RequestMapping(
             method = [RequestMethod.PATCH],
             value = ["/api/v1/users/username"],
+            produces = ["application/json"],
             consumes = ["application/json"]
     )
     fun requestChangeLoginId_0( @Valid @RequestBody changeUsername: ChangeUsername): ResponseEntity<Unit> {

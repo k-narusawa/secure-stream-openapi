@@ -5,6 +5,9 @@
 */
 package org.openapitools.api
 
+import org.openapitools.model.Model400Error
+import org.openapitools.model.Model401Error
+import org.openapitools.model.Model500Error
 import org.openapitools.model.SocialLoginUrls
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -35,7 +38,8 @@ interface SocialLoginApi {
 
     @RequestMapping(
             method = [RequestMethod.DELETE],
-            value = ["/api/v1/users/social_login/{provider}"]
+            value = ["/api/v1/users/social_login/{provider}"],
+            produces = ["application/json"]
     )
     fun deleteSocialLogin( @PathVariable("provider") provider: kotlin.String): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
