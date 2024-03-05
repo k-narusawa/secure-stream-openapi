@@ -14,4 +14,31 @@ patch:
           $ref: '../../../../components/schemas/requestBodies/ChangeUsername.yml'
   responses:
     '204':
-      description: Username変更成功
+      description: Username変更要求成功
+    '400':
+      description: リクエストエラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../components/schemas/error/400.yml'
+          examples:
+            不正なリクエスト:
+              $ref: '../../../../components/schemas/error/examples/400/BadRequest.yml'
+    '401':
+      description: 認証エラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../components/schemas/error/401.yml'
+          examples:
+            アクセストークン無効:
+              $ref: '../../../../components/schemas/error/examples/401/Unauthorized.yml'
+    '500':
+      description: サーバーエラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../components/schemas/error/500.yml'
+          examples:
+            予期せぬエラー:
+              $ref: '../../../../components/schemas/error/examples/500/Server.yml'

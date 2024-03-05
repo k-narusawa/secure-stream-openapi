@@ -1,0 +1,26 @@
+type: object
+required:
+  - error
+properties:
+  error:
+    type: object
+    required:
+      - request_id
+      - code
+      - message
+    properties:
+      request_id:
+        type: string
+        description: "リクエストID"
+      code: 
+        type: string
+        enum: 
+          - "401-001"
+        description: |
+          エラーコード
+          | エラーコード | 説明 |
+          |-|-|
+          | 401-001 | アクセストークン無効 |
+      message:
+        type: string
+        description: "エラーメッセージ"

@@ -1,0 +1,27 @@
+type: object
+required:
+  - error
+properties:
+  error:
+    type: object
+    required:
+      - request_id
+      - code
+      - message
+    properties:
+      request_id:
+        type: string
+        description: "リクエストID"
+      code: 
+        type: string
+        enum: 
+          - "400-001"
+        description: |
+          エラーコード
+          | エラーコード | 説明 |
+          |-|-|
+          | 400-001 | 入力値が不正 |
+          | 400-002 | パスワードが弱い |
+      message:
+        type: string
+        description: "エラーメッセージ"
