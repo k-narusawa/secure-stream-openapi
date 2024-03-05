@@ -16,7 +16,7 @@ import jakarta.validation.Valid
 /**
  * 
  * @param requestId リクエストID
- * @param code エラーコード | エラーコード | 説明 | |-|-| | 401-001 | アクセストークン無効 | 
+ * @param code エラーコード | エラーコード | 説明 | |-|-| | ID401E001 | アクセストークン期限切れ | 
  * @param message エラーメッセージ
  */
 data class Model401ErrorError(
@@ -29,12 +29,12 @@ data class Model401ErrorError(
 ) {
 
     /**
-    * エラーコード | エラーコード | 説明 | |-|-| | 401-001 | アクセストークン無効 | 
-    * Values: _401minus001
+    * エラーコード | エラーコード | 説明 | |-|-| | ID401E001 | アクセストークン期限切れ | 
+    * Values: ID401_E001
     */
     enum class Code(val value: kotlin.String) {
 
-        @JsonProperty("401-001") _401minus001("401-001")
+        @JsonProperty("ID401E001") ID401_E001("ID401E001")
     }
 
 }

@@ -15,12 +15,12 @@ properties:
       code: 
         type: string
         enum: 
-          - "500-001"
+          - "ID500E001"
         description: |
           エラーコード
           | エラーコード | 説明 |
           |-|-|
-          | 500-001 | 予期せぬエラー |
+          | ID500E001 | 予期せぬエラー |
       message:
         type: string
         description: "エラーメッセージ"

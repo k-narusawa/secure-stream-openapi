@@ -15,12 +15,12 @@ properties:
       code: 
         type: string
         enum: 
-          - "401-001"
+          - "ID401E001"
         description: |
           エラーコード
           | エラーコード | 説明 |
           |-|-|
-          | 401-001 | アクセストークン無効 |
+          | ID401E001 | アクセストークン期限切れ |
       message:
         type: string
         description: "エラーメッセージ"

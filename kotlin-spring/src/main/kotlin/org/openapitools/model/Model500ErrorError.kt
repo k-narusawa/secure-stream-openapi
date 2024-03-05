@@ -16,7 +16,7 @@ import jakarta.validation.Valid
 /**
  * 
  * @param requestId リクエストID
- * @param code エラーコード | エラーコード | 説明 | |-|-| | 500-001 | 予期せぬエラー | 
+ * @param code エラーコード | エラーコード | 説明 | |-|-| | ID500E001 | 予期せぬエラー | 
  * @param message エラーメッセージ
  */
 data class Model500ErrorError(
@@ -29,12 +29,12 @@ data class Model500ErrorError(
 ) {
 
     /**
-    * エラーコード | エラーコード | 説明 | |-|-| | 500-001 | 予期せぬエラー | 
-    * Values: _500minus001
+    * エラーコード | エラーコード | 説明 | |-|-| | ID500E001 | 予期せぬエラー | 
+    * Values: ID500_E001
     */
     enum class Code(val value: kotlin.String) {
 
-        @JsonProperty("500-001") _500minus001("500-001")
+        @JsonProperty("ID500E001") ID500_E001("ID500E001")
     }
 
 }

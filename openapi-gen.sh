@@ -13,6 +13,7 @@ docker run --rm \
     --additional-properties gradleBuildFile=false \
     --additional-properties documentationProvider=none \
     --additional-properties interfaceOnly=true \
+    --additional-properties enumPropertyNaming=UPPERCASE \
     -o /local/kotlin-spring
 
 docker run --rm \

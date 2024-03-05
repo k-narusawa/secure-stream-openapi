@@ -15,13 +15,14 @@ properties:
       code: 
         type: string
         enum: 
-          - "400-001"
+          - "ID400E001"
+          - "ID400E002"
         description: |
           エラーコード
           | エラーコード | 説明 |
           |-|-|
-          | 400-001 | 入力値が不正 |
-          | 400-002 | パスワードが弱い |
+          | ID400E001 | 入力値が不正 |
+          | ID400E001 | パスワードが弱い |
       message:
         type: string
         description: "エラーメッセージ"

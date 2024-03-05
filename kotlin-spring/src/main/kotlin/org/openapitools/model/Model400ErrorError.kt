@@ -16,7 +16,7 @@ import jakarta.validation.Valid
 /**
  * 
  * @param requestId リクエストID
- * @param code エラーコード | エラーコード | 説明 | |-|-| | 400-001 | 入力値が不正 | | 400-002 | パスワードが弱い | 
+ * @param code エラーコード | エラーコード | 説明 | |-|-| | ID400E001 | 入力値が不正 | | ID400E001 | パスワードが弱い | 
  * @param message エラーメッセージ
  */
 data class Model400ErrorError(
@@ -29,12 +29,13 @@ data class Model400ErrorError(
 ) {
 
     /**
-    * エラーコード | エラーコード | 説明 | |-|-| | 400-001 | 入力値が不正 | | 400-002 | パスワードが弱い | 
-    * Values: _400minus001
+    * エラーコード | エラーコード | 説明 | |-|-| | ID400E001 | 入力値が不正 | | ID400E001 | パスワードが弱い | 
+    * Values: ID400_E001,ID400_E002
     */
     enum class Code(val value: kotlin.String) {
 
-        @JsonProperty("400-001") _400minus001("400-001")
+        @JsonProperty("ID400E001") ID400_E001("ID400E001"),
+        @JsonProperty("ID400E002") ID400_E002("ID400E002")
     }
 
 }
