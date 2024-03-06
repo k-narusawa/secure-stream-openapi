@@ -2,7 +2,7 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.openapitools.model.Model500ErrorError
+import org.openapitools.model.ErrorError
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Email
@@ -17,10 +17,10 @@ import jakarta.validation.Valid
  * 
  * @param error 
  */
-data class Model500Error(
+data class Error(
 
     @field:Valid
-    @get:JsonProperty("error", required = true) val error: Model500ErrorError
+    @get:JsonProperty("error", required = true) val error: ErrorError
 ) {
 
 }

@@ -15,11 +15,17 @@ properties:
       code: 
         type: string
         enum: 
+          - "ID400E001"
+          - "ID400E002"
+          - "ID401E001"
           - "ID500E001"
         description: |
           エラーコード
           | エラーコード | 説明 |
           |-|-|
+          | ID400E001 | 入力値が不正 |
+          | ID400E001 | パスワードが弱い |
+          | ID401E001 | アクセストークン期限切れ |
           | ID500E001 | 予期せぬエラー |
       message:
         type: string

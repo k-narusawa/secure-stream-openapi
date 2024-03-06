@@ -6,9 +6,7 @@
 package org.openapitools.api
 
 import org.openapitools.model.ChangeUsername
-import org.openapitools.model.Model400Error
-import org.openapitools.model.Model401Error
-import org.openapitools.model.Model500Error
+import org.openapitools.model.Error
 import org.openapitools.model.RequestChangeUsername
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType

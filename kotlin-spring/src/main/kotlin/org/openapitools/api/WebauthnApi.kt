@@ -5,9 +5,7 @@
 */
 package org.openapitools.api
 
-import org.openapitools.model.Model400Error
-import org.openapitools.model.Model401Error
-import org.openapitools.model.Model500Error
+import org.openapitools.model.Error
 import org.openapitools.model.RegisterWebauthnRequest
 import org.openapitools.model.RequestWebauthnRegistration
 import org.springframework.http.HttpStatus

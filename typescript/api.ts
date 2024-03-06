@@ -52,139 +52,51 @@ export interface ChangeUsername {
 /**
  * 
  * @export
- * @interface Model400Error
+ * @interface ErrorError
  */
-export interface Model400Error {
-    /**
-     * 
-     * @type {Model400ErrorError}
-     * @memberof Model400Error
-     */
-    'error': Model400ErrorError;
-}
-/**
- * 
- * @export
- * @interface Model400ErrorError
- */
-export interface Model400ErrorError {
+export interface ErrorError {
     /**
      * リクエストID
      * @type {string}
-     * @memberof Model400ErrorError
+     * @memberof ErrorError
      */
     'request_id': string;
     /**
-     * エラーコード | エラーコード | 説明 | |-|-| | ID400E001 | 入力値が不正 | | ID400E001 | パスワードが弱い | 
+     * エラーコード | エラーコード | 説明 | |-|-| | ID400E001 | 入力値が不正 | | ID400E001 | パスワードが弱い | | ID401E001 | アクセストークン期限切れ | | ID500E001 | 予期せぬエラー | 
      * @type {string}
-     * @memberof Model400ErrorError
+     * @memberof ErrorError
      */
-    'code': Model400ErrorErrorCodeEnum;
+    'code': ErrorErrorCodeEnum;
     /**
      * エラーメッセージ
      * @type {string}
-     * @memberof Model400ErrorError
+     * @memberof ErrorError
      */
     'message': string;
 }
 
-export const Model400ErrorErrorCodeEnum = {
+export const ErrorErrorCodeEnum = {
     Id400E001: 'ID400E001',
-    Id400E002: 'ID400E002'
-} as const;
-
-export type Model400ErrorErrorCodeEnum = typeof Model400ErrorErrorCodeEnum[keyof typeof Model400ErrorErrorCodeEnum];
-
-/**
- * 
- * @export
- * @interface Model401Error
- */
-export interface Model401Error {
-    /**
-     * 
-     * @type {Model401ErrorError}
-     * @memberof Model401Error
-     */
-    'error': Model401ErrorError;
-}
-/**
- * 
- * @export
- * @interface Model401ErrorError
- */
-export interface Model401ErrorError {
-    /**
-     * リクエストID
-     * @type {string}
-     * @memberof Model401ErrorError
-     */
-    'request_id': string;
-    /**
-     * エラーコード | エラーコード | 説明 | |-|-| | ID401E001 | アクセストークン期限切れ | 
-     * @type {string}
-     * @memberof Model401ErrorError
-     */
-    'code': Model401ErrorErrorCodeEnum;
-    /**
-     * エラーメッセージ
-     * @type {string}
-     * @memberof Model401ErrorError
-     */
-    'message': string;
-}
-
-export const Model401ErrorErrorCodeEnum = {
-    Id401E001: 'ID401E001'
-} as const;
-
-export type Model401ErrorErrorCodeEnum = typeof Model401ErrorErrorCodeEnum[keyof typeof Model401ErrorErrorCodeEnum];
-
-/**
- * 
- * @export
- * @interface Model500Error
- */
-export interface Model500Error {
-    /**
-     * 
-     * @type {Model500ErrorError}
-     * @memberof Model500Error
-     */
-    'error': Model500ErrorError;
-}
-/**
- * 
- * @export
- * @interface Model500ErrorError
- */
-export interface Model500ErrorError {
-    /**
-     * リクエストID
-     * @type {string}
-     * @memberof Model500ErrorError
-     */
-    'request_id': string;
-    /**
-     * エラーコード | エラーコード | 説明 | |-|-| | ID500E001 | 予期せぬエラー | 
-     * @type {string}
-     * @memberof Model500ErrorError
-     */
-    'code': Model500ErrorErrorCodeEnum;
-    /**
-     * エラーメッセージ
-     * @type {string}
-     * @memberof Model500ErrorError
-     */
-    'message': string;
-}
-
-export const Model500ErrorErrorCodeEnum = {
+    Id400E002: 'ID400E002',
+    Id401E001: 'ID401E001',
     Id500E001: 'ID500E001'
 } as const;
 
-export type Model500ErrorErrorCodeEnum = typeof Model500ErrorErrorCodeEnum[keyof typeof Model500ErrorErrorCodeEnum];
+export type ErrorErrorCodeEnum = typeof ErrorErrorCodeEnum[keyof typeof ErrorErrorCodeEnum];
 
+/**
+ * 
+ * @export
+ * @interface ModelError
+ */
+export interface ModelError {
+    /**
+     * 
+     * @type {ErrorError}
+     * @memberof ModelError
+     */
+    'error': ErrorError;
+}
 /**
  * 
  * @export

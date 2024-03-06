@@ -20,7 +20,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../../../../components/schemas/error/400Error.yml'
+            $ref: '../../../../components/schemas/error/Error.yml'
           examples:
             不正なリクエスト:
               $ref: '../../../../components/schemas/error/examples/400/BadRequest.yml'
@@ -29,7 +29,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../../../../components/schemas/error/401Error.yml'
+            $ref: '../../../../components/schemas/error/Error.yml'
           examples:
             アクセストークン無効:
               $ref: '../../../../components/schemas/error/examples/401/Unauthorized.yml'
@@ -38,7 +38,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../../../../components/schemas/error/500Error.yml'
+            $ref: '../../../../components/schemas/error/Error.yml'
           examples:
             予期せぬエラー:
               $ref: '../../../../components/schemas/error/examples/500/Server.yml'

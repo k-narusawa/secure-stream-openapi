@@ -9,12 +9,8 @@ src/main/kotlin/org/openapitools/api/UsernameApi.kt
 src/main/kotlin/org/openapitools/api/WebauthnApi.kt
 src/main/kotlin/org/openapitools/model/ChangePassword.kt
 src/main/kotlin/org/openapitools/model/ChangeUsername.kt
-src/main/kotlin/org/openapitools/model/Model400Error.kt
-src/main/kotlin/org/openapitools/model/Model400ErrorError.kt
-src/main/kotlin/org/openapitools/model/Model401Error.kt
-src/main/kotlin/org/openapitools/model/Model401ErrorError.kt
-src/main/kotlin/org/openapitools/model/Model500Error.kt
-src/main/kotlin/org/openapitools/model/Model500ErrorError.kt
+src/main/kotlin/org/openapitools/model/Error.kt
+src/main/kotlin/org/openapitools/model/ErrorError.kt
 src/main/kotlin/org/openapitools/model/RegisterWebauthnRequest.kt
 src/main/kotlin/org/openapitools/model/RegisterWebauthnRequestResponse.kt
 src/main/kotlin/org/openapitools/model/RequestChangeUsername.kt
