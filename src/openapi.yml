@@ -28,8 +28,6 @@ paths:
     $ref: './paths/api/v1/users/social_login.yml'
   /api/v1/users/social_login/login/code/{provider}:
     $ref: './paths/api/v1/users/social_login/login/code/provider.yml'
-  /api/v1/users/token/revoke:
-    $ref: './paths/api/v1/users/token/revoke.yml'
 
 components:  
   securitySchemes:
