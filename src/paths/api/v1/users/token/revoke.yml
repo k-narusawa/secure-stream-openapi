@@ -1,0 +1,39 @@
+delete:
+  operationId: revokeToken
+  tags: 
+    - token
+  summary: トークン無効化
+  description: トークンの無効化を行います
+  security:
+    - Bearer: []
+  responses:
+    '204':
+      description: トークン無効化成功
+    '400':
+      description: リクエストエラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../components/schemas/error/Error.yml'
+          examples:
+            不正なリクエスト:
+              $ref: '../../../../../components/schemas/error/examples/400/BadRequest.yml'
+    '401':
+      description: 認証エラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../components/schemas/error/Error.yml'
+          examples:
+            アクセストークン無効:
+              $ref: '../../../../../components/schemas/error/examples/401/Unauthorized.yml'
+    '500':
+      description: サーバーエラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../../components/schemas/error/Error.yml'
+          examples:
+            予期せぬエラー:
+              $ref: '../../../../../components/schemas/error/examples/500/Server.yml'
+
