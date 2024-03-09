@@ -1,0 +1,13 @@
+type: object
+required:
+  - credential_id
+  - aaguid
+properties:
+  credential_id: 
+    type: string
+    description: "登録したWebauthnの識別子"
+    example: "Ajb5NxkWb1V_9N5oMoFu3w"
+  aaguid:
+    type: string
+    description: "セキュリティキーの識別子"
+    example: "ea9b8d66-4d01-1d21-3ce4-b6b48cb575d4"

@@ -15,6 +15,10 @@ post:
   responses:
     '200':
       description: credentials登録結果を返却します
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../components/schemas/WebauthnRegistration.yml'
     '400':
       description: リクエストエラー
       content:

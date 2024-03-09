@@ -22,3 +22,4 @@ src/main/kotlin/org/openapitools/model/RequestWebauthnRegistrationPubKeyCredPara
 src/main/kotlin/org/openapitools/model/RequestWebauthnRegistrationRp.kt
 src/main/kotlin/org/openapitools/model/RequestWebauthnRegistrationUser.kt
 src/main/kotlin/org/openapitools/model/SocialLoginUrls.kt
+src/main/kotlin/org/openapitools/model/WebauthnRegistration.kt

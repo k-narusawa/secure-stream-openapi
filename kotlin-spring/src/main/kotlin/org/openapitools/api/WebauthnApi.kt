@@ -8,6 +8,7 @@ package org.openapitools.api
 import org.openapitools.model.Error
 import org.openapitools.model.RegisterWebauthnRequest
 import org.openapitools.model.RequestWebauthnRegistration
+import org.openapitools.model.WebauthnRegistration
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -61,7 +62,7 @@ interface WebauthnApi {
             produces = ["application/json"],
             consumes = ["application/json"]
     )
-    fun registerWebauthn( @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<Unit> {
+    fun registerWebauthn( @Valid @RequestBody registerWebauthnRequest: RegisterWebauthnRequest): ResponseEntity<WebauthnRegistration> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 

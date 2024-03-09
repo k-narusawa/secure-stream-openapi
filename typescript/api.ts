@@ -384,6 +384,25 @@ export interface SocialLoginUrls {
      */
     'github': string;
 }
+/**
+ * 
+ * @export
+ * @interface WebauthnRegistration
+ */
+export interface WebauthnRegistration {
+    /**
+     * 登録したWebauthnの識別子
+     * @type {string}
+     * @memberof WebauthnRegistration
+     */
+    'credential_id': string;
+    /**
+     * セキュリティキーの識別子
+     * @type {string}
+     * @memberof WebauthnRegistration
+     */
+    'aaguid': string;
+}
 
 /**
  * PasswordApi - axios parameter creator
@@ -1242,7 +1261,7 @@ export const WebauthnApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async registerWebauthn(registerWebauthnRequest: RegisterWebauthnRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async registerWebauthn(registerWebauthnRequest: RegisterWebauthnRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WebauthnRegistration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.registerWebauthn(registerWebauthnRequest, options);
             const index = configuration?.serverIndex ?? 0;
             const operationBasePath = operationServerMap['WebauthnApi.registerWebauthn']?.[index]?.url;
@@ -1296,7 +1315,7 @@ export const WebauthnApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        registerWebauthn(registerWebauthnRequest: RegisterWebauthnRequest, options?: any): AxiosPromise<void> {
+        registerWebauthn(registerWebauthnRequest: RegisterWebauthnRequest, options?: any): AxiosPromise<WebauthnRegistration> {
             return localVarFp.registerWebauthn(registerWebauthnRequest, options).then((request) => request(axios, basePath));
         },
         /**
