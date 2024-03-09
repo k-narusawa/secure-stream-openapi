@@ -44,7 +44,7 @@ post:
               $ref: '../../../../components/schemas/error/examples/500/Server.yml'
 
 delete:
-  operationId: deleteWebauthn
+  operationId: deleteAllWebauthn
   tags: 
     - webauthn
   summary: 全件削除

@@ -40,7 +40,17 @@ interface WebauthnApi {
             value = ["/api/v1/users/webauthn"],
             produces = ["application/json"]
     )
-    fun deleteWebauthn(): ResponseEntity<Unit> {
+    fun deleteAllWebauthn(): ResponseEntity<Unit> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+
+    @RequestMapping(
+            method = [RequestMethod.DELETE],
+            value = ["/api/v1/users/webauthn/{credentialId}"],
+            produces = ["application/json"]
+    )
+    fun deleteWebauthn( @PathVariable("credentialId") credentialId: kotlin.String): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
